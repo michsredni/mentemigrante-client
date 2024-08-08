@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css'
 import HomePage from './pages/HomePage';
-import SignupPage from './pages/SignupPage';
-import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/auth/SignupPage';
+import LoginPage from './pages/auth/LoginPage';
 import AboutUsPage from './pages/AboutUsPage';
 import UserProfile from './pages/UserProfile';
 import PsicoList from './pages/PsicoList';
@@ -17,10 +17,11 @@ import EditTablero from './pages/EditTablero';
 import CreateTaller from './pages/CreateTaller';
 import EditTaller from './pages/EditTaller';
 import Navbar from './components/Navbar'
+import NotFoundPage from './pages/NotFoundPage';
+
 
 
 function App() {
-
 
   return ( 
     <div>
@@ -41,6 +42,8 @@ function App() {
         <Route path ="/tablero-creativo/:tableroId/editar" element={<EditTablero/>}/>   
         <Route path ="/usuarios" element={<UserList/>}/>
         <Route path ="/usuarios/:usuarioId" element={<UserDetails/>}/>
+        <Route path ="/*" element={<NotFoundPage/>}/>
+
 
         
       </Routes>
