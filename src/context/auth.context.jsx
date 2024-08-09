@@ -1,12 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
+import service from "../service/service.config";
 
 const AuthContext = createContext();
 
 function AuthWrapper(props) {
   const [estaLoggeado, setEstaLoggeado] = useState(false);
   const [idUsuarioLoggeado, setIdUsuarioLoggeado] = useState(null);
-  const [estaAutenticado, setEstaAutenticado] = useState(true);
+  const [estaConfirmandoInfo, setEstaConfirmandoInfo] = useState(true);
 
   const usuarioAutenticado = async () => {
     //funcion que llama a la ruta verify para verificar el TOKEN y actualizar los estados
@@ -16,7 +17,7 @@ function AuthWrapper(props) {
     if (!authToken) {
       setEstaLoggeado(false);
       setIdUsuarioLoggeado(null);
-      setEstaAutenticado(false);
+      setEstaConfirmandoInfo(false);
 
       return;
     }
@@ -26,12 +27,12 @@ function AuthWrapper(props) {
       console.log(response);
       setEstaLoggeado(true);
       setIdUsuarioLoggeado(response.data._id);
-      setEstaAutenticado(false); //todo preguntar porq es falso, si el token esta autenticado
+      setEstaConfirmandoInfo(false); // accion de estar autenticando, se ve o no el spinner ! falso porq ya se autentico 
     } catch (error) {
       console.log(error);
       setEstaLoggeado(false);
       setIdUsuarioLoggeado(null);
-      setEstaAutenticado(false);
+      setEstaConfirmandoInfo(false);
     }
   };
 
@@ -45,7 +46,7 @@ function AuthWrapper(props) {
     usuarioAutenticado();
   }, []);
 
-  if (estaAutenticado) {
+  if (estaConfirmandoInfo) {
     return (
       <Spinner animation="border" role="status">
         <span className="visually-hidden">Loading...</span>

@@ -25,8 +25,9 @@ function SignupPage() {
       await service.post("/auth/registro-usuario", nuevoUsuario);
       console.log("usuario creado")
 
-      // navigate("/iniciar-sesion");
+      navigate("/iniciar-sesion");
     } catch (error) {
+      console.log(error)
       if (error.response && error.response.status === 400) {
         setErrorMessage(error.response.data.errorMessage);
       } else {

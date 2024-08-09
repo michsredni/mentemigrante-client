@@ -1,8 +1,12 @@
 import React from 'react'
+import UserList from './UserList'
 
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <div>
+      <h1>HOME PAGE</h1>
+      
+    </div>
   )
 }
 

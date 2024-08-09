@@ -16,8 +16,12 @@ import UserDetails from './pages/UserDetails';
 import EditTablero from './pages/EditTablero';
 import CreateTaller from './pages/CreateTaller';
 import EditTaller from './pages/EditTaller';
-import Navbar from './components/Navbar'
 import NotFoundPage from './pages/NotFoundPage';
+import ErrorPage from './pages/ErrorPage';
+
+//componentes
+import Navbar from './components/Navbar'
+import Private from './components/auth/Private';
 
 
 
@@ -31,18 +35,20 @@ function App() {
         <Route path ="/registro" element={<SignupPage/>}/>
         <Route path ="/iniciar-sesion" element={<LoginPage/>}/>
         <Route path ="/sobre-nosotros" element={<AboutUsPage/>}/>
-        <Route path ="/perfil" element={<UserProfile/>}/>
-        <Route path ="/psicologos" element={<PsicoList/>}/>
-        <Route path ="/psicologos/:psicoId" element={<PsicoDetails/>}/>
+        <Route path ="/perfil" element={ <Private> <UserProfile/> </Private>}/>
+        <Route path ="/psicologos" element={ <Private> <PsicoList/> </Private>}/>
+        <Route path ="/psicologos/:psicoId" element={ <Private> <PsicoDetails/> </Private>}/>
         <Route path ="/talleres" element={<TallerList/>}/>
-        <Route path ="/talleres/crear" element={<CreateTaller/>}/>
+        <Route path ="/talleres/crear" element={ <Private> <CreateTaller/> </Private>}/>
         <Route path ="/talleres/:tallerId" element={<TallerDetails/>}/>
-        <Route path ="/talleres/:tallerId/editar" element={<EditTaller/>}/>
-        <Route path ="/tablero-creativo/crear" element={<CreateTablero/>}/>
-        <Route path ="/tablero-creativo/:tableroId/editar" element={<EditTablero/>}/>   
-        <Route path ="/usuarios" element={<UserList/>}/>
-        <Route path ="/usuarios/:usuarioId" element={<UserDetails/>}/>
-        <Route path ="/*" element={<NotFoundPage/>}/>
+        <Route path ="/talleres/:tallerId/editar" element={ <Private> <EditTaller/> </Private>}/>
+        <Route path ="/tablero-creativo/crear" element={ <Private> <CreateTablero/> </Private>}/>
+        <Route path ="/tablero-creativo/:tableroId/editar" element={ <Private> <EditTablero/> </Private>}/>   
+        <Route path ="/usuarios" element={<Private> <UserList/> </Private>}/>
+        <Route path ="/usuarios/:usuarioId" element={<Private> <UserDetails/> </Private>}/>
+        <Route path ="*" element={<NotFoundPage/>}/>
+        <Route path ="/error/500" element={<ErrorPage/>}/>
+        
 
 
         
