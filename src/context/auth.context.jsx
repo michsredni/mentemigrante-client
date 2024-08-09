@@ -24,7 +24,7 @@ function AuthWrapper(props) {
 
     try {
       const response = await service.get("/auth/verify");
-      console.log(response);
+      // console.log(response);
       setEstaLoggeado(true);
       setIdUsuarioLoggeado(response.data._id);
       setEstaConfirmandoInfo(false); // accion de estar autenticando, se ve o no el spinner ! falso porq ya se autentico 

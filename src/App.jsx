@@ -29,6 +29,9 @@ function App() {
 
   return ( 
     <div>
+      <div className='navbar'>
+      <Navbar />
+      </div>
 
       <Routes>
         <Route path ="/" element={<HomePage/>}/>

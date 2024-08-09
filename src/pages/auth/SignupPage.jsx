@@ -31,7 +31,7 @@ function SignupPage() {
       if (error.response && error.response.status === 400) {
         setErrorMessage(error.response.data.errorMessage);
       } else {
-        navigate("/*");
+        navigate("/error/500");
       }
     }
   };
