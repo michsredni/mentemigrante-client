@@ -13,7 +13,7 @@ function AuthWrapper(props) {
     //funcion que llama a la ruta verify para verificar el TOKEN y actualizar los estados
 
     const authToken = localStorage.getItem("authToken");
-
+    // console.log(authToken)
     if (!authToken) {
       setEstaLoggeado(false);
       setIdUsuarioLoggeado(null);

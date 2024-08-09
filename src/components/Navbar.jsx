@@ -1,10 +1,10 @@
 import { useContext, React} from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import { Container, Nav } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import logo from "../images/MentEmigrante-logo.png"
 
-function Navbar() {
+function MyNavbar() {
   const navigate = useNavigate()
 
   const { estaLoggeado, usuarioAutenticado } = useContext(AuthContext)
@@ -24,8 +24,8 @@ function Navbar() {
 
   return (
     <nav>
-      <Link to="/">Home</Link>
-      <Link to="/sobre-nosotros">Sobre nosotros</Link>
+            
+      {/* //TODO verificar que las rutas de navbar aparezca dependiendo el usuario (psico no puede hacer tablero) */}
 
       <Navbar expand="lg" sticky="top" id="navbar">
       <Container>
@@ -33,12 +33,15 @@ function Navbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {/* {!estaLoggeado && <Link to="/registro">Registro</Link>}
+            {!estaLoggeado && <Link to="/registro">Registro</Link>}
             {!estaLoggeado && <Link to="/iniciar-sesion">Iniciar Sesion</Link>}
+            {!estaLoggeado && <Link to="/sobre-nosotros">Sobre nosotros</Link>}
             {estaLoggeado && <Link to="/perfil">Perfil</Link>}
-            {estaLoggeado && <Link to="/talleres">Talleres</Link>}
+            {estaLoggeado && <Link to="/usuarios">Usuarios</Link>}
+            {estaLoggeado && <Link to="/psicologos">Psicologos</Link>}
+            {estaLoggeado && <Link to="/talleres">Talleres</Link>} 
             {estaLoggeado && <Link to="/tablero-creativo/crear">Crear tablero</Link>}
-            {estaLoggeado && <button onClick={handleLogout}><span>Cerrar sesión</span></button> } */}
+            {estaLoggeado && <button onClick={handleLogout}><span>Cerrar sesión</span></button> }
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -49,4 +52,4 @@ function Navbar() {
   );
 }
 
-export default Navbar
+export default MyNavbar

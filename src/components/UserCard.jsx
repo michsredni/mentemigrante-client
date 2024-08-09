@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function UserCard(props) {
-const{imagen, nacionalidad, nombreCompleto, residencia} = props.eachUser
+const{imagen, nacionalidad, nombreCompleto, residencia, _id } = props.eachUser
 
   return (
     <div className='usuario-card'> 
@@ -9,7 +10,7 @@ const{imagen, nacionalidad, nombreCompleto, residencia} = props.eachUser
       <h3>{nacionalidad}</h3> 
       <h3>{residencia}</h3>
       <img src={imagen} alt="foto" />
-      
+      <Link to={`/usuarios/${_id}`}><button>Ver detalles</button></Link>
       </div>
     
   )

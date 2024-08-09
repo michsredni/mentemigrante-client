@@ -12,17 +12,10 @@ getData()
 
 const getData = async () => {
   try {
-    const response = await service.get('/usuarios')
-    if(response.data.rol === "user"){
+    const response = await service.get('/usuarios/user/rol')
       console.log(response.data)
       setUsers(response.data)
-    }else{
-      console.log(response.data)
-      console.log("error al buscar usuarios de tipo rol user")
-    }
-    
-    
-  } catch (error) {
+    } catch (error) {
     console.log(error)
   }
 }
