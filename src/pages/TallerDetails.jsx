@@ -8,8 +8,8 @@ function TallerDetails(props) {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    
-    // revisar porque aparece el ususario registrado pero se necesita refrescar la página
+
+    // TO DO revisar porque aparece el ususario registrado pero se necesita refrescar la página
 
     try {
       const response = await service.patch(`/talleres/${_id}/asistencia`)
