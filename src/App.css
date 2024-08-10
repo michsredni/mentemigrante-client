@@ -5,6 +5,26 @@
   text-align: center;
 }
 
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
+  display: flex;
+  justify-content: center; 
+  background-color: white; /* Color de fondo de la navbar */
+  padding: 10px 0;
+}
+
+/* Ajustes adicionales si es necesario */
+.navbar .navbar-content {
+  width: 100%;
+  max-width: 1200px; 
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .profileDiv {
   display: flex;
   flex-direction: row;

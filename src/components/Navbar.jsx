@@ -33,20 +33,20 @@ function MyNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {!estaLoggeado && <Link to="/registro">Registro</Link>}
-            {!estaLoggeado && <Link to="/iniciar-sesion">Iniciar Sesion</Link>}
-            {!estaLoggeado && <Link to="/sobre-nosotros">Sobre nosotros</Link>}
-            {estaLoggeado && <Link to="/perfil">Perfil</Link>}
-            {estaLoggeado && <Link to="/usuarios">Usuarios</Link>}
-            {estaLoggeado && <Link to="/psicologos">Psicologos</Link>}
-            {estaLoggeado && <Link to="/talleres">Talleres</Link>} 
-            {estaLoggeado && <Link to="/tablero-creativo/crear">Crear tablero</Link>}
+            {!estaLoggeado && <Nav.Link href="/registro">Registro</Nav.Link>}
+            {!estaLoggeado && <Nav.Link href="/iniciar-sesion">Iniciar Sesion</Nav.Link>}
+            {!estaLoggeado && <Nav.Link href="/sobre-nosotros">Sobre nosotros</Nav.Link>}
+            {estaLoggeado && <Nav.Link href="/perfil">Perfil</Nav.Link>}
+            {estaLoggeado && <Nav.Link href="/usuarios">Usuarios</Nav.Link>}
+            {estaLoggeado && <Nav.Link href="/psicologos">Psicologos</Nav.Link>}
+            {estaLoggeado && <Nav.Link href="/talleres">Talleres</Nav.Link>} 
+            {estaLoggeado && <Nav.Link href="/tablero-creativo/crear">Crear tablero</Nav.Link>}
             {estaLoggeado && <button onClick={handleLogout}><span>Cerrar sesión</span></button> }
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
+    
       {/* {isAdmin && <Link to="/admin">Solo Admin</Link>} */}
     </nav>
   );

@@ -30,7 +30,9 @@ function App() {
   return ( 
     <div>
       <div className='navbar'>
-      <Navbar />
+        <div className="navbar-content">
+          <Navbar />
+        </div>
       </div>
 
       <Routes>
@@ -51,10 +53,6 @@ function App() {
         <Route path ="/usuarios/:usuarioId" element={<Private> <UserDetails/> </Private>}/>
         <Route path ="*" element={<NotFoundPage/>}/>
         <Route path ="/error/500" element={<ErrorPage/>}/>
-        
-
-
-        
       </Routes>
       
     </div>
