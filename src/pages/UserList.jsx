@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import UserCard from "../components/UserCard"
 import service from '../service/service.config';
+import { Spinner } from 'react-bootstrap';
 
 function UserList() {
 const [users, setUsers] = useState([]);
