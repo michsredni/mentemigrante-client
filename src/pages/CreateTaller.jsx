@@ -24,7 +24,6 @@ function CreateTaller() {
   
     try {
       const response = await service.post("/upload", uploadData);
-  
       setImageUrl(response.data.imageUrl);
       setIsUploading(false); 
     } catch (error) {
@@ -43,7 +42,6 @@ function CreateTaller() {
       duracion,
       imagen: imageUrl,
       usuarios
-    
     };
 
     try {

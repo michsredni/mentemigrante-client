@@ -7,7 +7,7 @@ function TableroCard(props) {
   const navigate = useNavigate()
   const { titulo, descripcion, imagen, _id } = props.eachTablero;
 
-  const deleteTablero = async () =>{
+  const deleteTablero = async () => {
     console.log("tratando de borrar")
     try {
       await service.delete(`/tableros/${_id}`)

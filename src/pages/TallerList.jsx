@@ -14,7 +14,7 @@ function TallerList() {
   const getData = async () => {
     try {
       const response = await service.get("/talleres");
-      console.log(response.data);
+      // console.log(response.data);
       setTalleres(response.data);
     } catch (error) {
       console.log(error);
@@ -41,14 +41,15 @@ function TallerList() {
         sociales que afectan su bienestar.
       </p>
 
-      {talleres.map((eachTaller) => {
-        return <TallerDetails key={eachTaller._id} eachTaller={eachTaller} />;
-      })}
       <Link to={"/talleres/crear"}>
       <Button variant="dark" type="submit" className="mb-5">
         Crea tu Taller
       </Button>
       </Link>
+      
+      {talleres.map((eachTaller) => {
+        return <TallerDetails key={eachTaller._id} eachTaller={eachTaller} />;
+      })}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useContext, React} from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import logo from "../images/MentEmigrante-logo.png"
+import logo from "../assets/MentEmigrante-logo.png"
 
 function MyNavbar() {
   const navigate = useNavigate()

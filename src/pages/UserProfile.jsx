@@ -90,10 +90,6 @@ function UserProfile() {
                 {formatDate(ownProfile.createdAt)}
               </ListGroup.Item>
             </ListGroup>
-            <Card.Body>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
-            </Card.Body>
           </div>
         </div>
       </Card>
