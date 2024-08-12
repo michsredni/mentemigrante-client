@@ -16,14 +16,14 @@ function MyNavbar() {
 
   return (
     <Navbar
-      // data-bs-theme="dark"
+      data-bs-theme="dark"
       expand="lg"
       sticky="top"
       id="navbar"
     >
       <Container>
         <Navbar.Brand as={Link} to="/" className="mr-5">
-          <img src={logo} alt="logo" width="100px" />
+          <img className="logo" src={logo} alt="logo" width="100px" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -37,7 +37,7 @@ function MyNavbar() {
             {estaLoggeado && <Nav.Link as={Link} to="/talleres">Talleres</Nav.Link>}
             {estaLoggeado && <Nav.Link as={Link} to="/tablero-creativo/crear">Crear tablero</Nav.Link>}
             {estaLoggeado && (
-              <Button variant="dark" type="submit" onClick={handleLogout}>
+              <Button className="cerrarSesionButton" type="submit" onClick={handleLogout}>
                 <span>Cerrar sesión</span>
               </Button>
             )}

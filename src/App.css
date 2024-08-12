@@ -1,21 +1,26 @@
 #root {
-  margin: 0 auto;
+  margin: 5.3% auto;
   text-align: center;
-  background-color: white;
+  background-color: #F8EDED;
   color: black;
 }
 
 .navbar {
-  background-color: transparent !important; /* Fondo transparente */
+  background-color: #173B45 !important; /* Fondo transparente */
   position: fixed; /* Fija la navbar en la parte superior */
   top: 0;
   left: 0;
   right: 0;
   z-index: 1030;
+  padding: 20px 20px;
+}
+
+.logo{
+  filter: invert(100%);
 }
 
 .navbar-content {
-  background-color: transparent; /* Fondo transparente */
+  background-color: #173B45; /* Fondo transparente */
   padding: 0 1rem;
 }
 
@@ -27,7 +32,7 @@
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: white; /* Ajusta el color del texto para que sea visible sobre fondos claros */
+  color: #F8EDED; /* Ajusta el color del texto para que sea visible sobre fondos claros */
   margin-left: 500px;
 }
 
@@ -39,19 +44,26 @@
   margin-right: 10%;
 }
 
+.cerrarSesionButton {
+  background: none;
+  border: none;
+  color: #F8EDED;
+}
 
-body {
-  margin-top: 56px;
+.cerrarSesionButton:hover {
+  background: #F8EDED;
+  border: none;
+  color: #173B45;
 }
 
 
 /* HOME PAGE */
 .hero-section{
  width: 100%;
- height: 700px;
+ height: 900px;
  display: flex;
  flex-direction: column;
-background: linear-gradient(rgba(212, 135, 2, 0.8), rgba(183, 183, 183, 0.1)),
+  background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
    url("./assets/fondo.jpeg");
  background-size: cover;
  background-position: center;
@@ -61,22 +73,45 @@ background: linear-gradient(rgba(212, 135, 2, 0.8), rgba(183, 183, 183, 0.1)),
  .hero-text{
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
-  justify-content: right;
-  padding-left: 50%;
+  color: #F8EDED;
+ }
+
+ .hero-text h2{
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+ }
+
+ .hero-text h6{
+  margin-bottom: 5vh;
  }
 
 
 .cards-home {
-  text-align: left;
+  text-align: center;
   margin: 40px 12px;
+  color: #173B45;
 }
 
 .cards-home-content{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 15px;
+  gap: 5%;
+  margin: 2% 20%;
+}
+
+.botonRegistro{
+  background: #173B45;
+  border: none;
+  color: #F8EDED;
+}
+
+.botonRegistro:hover{
+  background: #F8EDED;
+  border: none;
+  color: #173B45;
 }
 
 
@@ -126,5 +161,5 @@ background: linear-gradient(rgba(212, 135, 2, 0.8), rgba(183, 183, 183, 0.1)),
 
 
 .user-card img {
-  width: 40%;
+  width: 50%;
 }

@@ -31,7 +31,7 @@ if(users === null){
 
   return (
     <div>
-
+      <h1 style={{ marginBottom: "10%", color: "#173B45", marginTop: '20%'}}>Usuarios</h1>
       {users.map((eachUser) => {
         return(
           <UserCard  key={eachUser._id} eachUser={eachUser}/>
