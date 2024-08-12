@@ -58,7 +58,7 @@ function CreateTablero() {
         diversa y justa de las experiencias migrantes y racializadas, celebrando
         la riqueza cultural y la resiliencia a través de la creatividad.
       </p>
-      <Card border="dark" style={{ width: "100%" }}>
+      <Card border="dark" style={{ width: "100%"}}>
         <h3 className="my-4">Crea tu Tablero</h3>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="d-flex flex-column justify-content-center align-items-center mb-5" controlId="formGridTitulo">

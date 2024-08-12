@@ -1,44 +1,71 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  background-color: white;
+  color: black;
 }
 
 .navbar {
-  position: sticky;
+  background-color: transparent !important; /* Fondo transparente */
+  position: fixed; /* Fija la navbar en la parte superior */
   top: 0;
-  z-index: 1000; 
-  display: flex;
-  background-color: white; /* Color de fondo de la navbar */
-  padding: 10px 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
 }
 
-/* Ajustes adicionales si es necesario */
-.navbar .navbar-content {
-  width: 100%;
-  max-width: 1200px; 
-  padding: 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.navbar-content {
+  background-color: transparent; /* Fondo transparente */
+  padding: 0 1rem;
 }
 
-/* HOME PAGE */
-.hero-section{
+.navbar-nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 100px 8px;
-  padding: 20px 4px;
+  color: white;
 }
 
-.hero-section-content{
+.navbar-dark .navbar-nav .nav-link {
+  color: white; /* Ajusta el color del texto para que sea visible sobre fondos claros */
+  margin-left: 500px;
+}
+
+.navbar-dark .navbar-brand img {
+  filter: brightness(0) invert(1); /*Para hacer que el logo sea visible en fondos oscuros */
+}
+
+.navbar-brand {
+  margin-right: 10%;
+}
+
+
+body {
+  margin-top: 56px;
+}
+
+
+/* HOME PAGE */
+.hero-section{
+ width: 100%;
+ height: 700px;
+ display: flex;
+ flex-direction: column;
+background: linear-gradient(rgba(212, 135, 2, 0.8), rgba(183, 183, 183, 0.1)),
+   url("./assets/fondo.jpeg");
+ background-size: cover;
+ background-position: center;
+ justify-content: center;
+
+}
+ .hero-text{
   display: flex;
   flex-direction: column;
-  text-align: left;
-  margin-left: 60px;
-}
+  text-align: center;
+  justify-content: right;
+  padding-left: 50%;
+ }
+
 
 .cards-home {
   text-align: left;
@@ -48,6 +75,8 @@
 .cards-home-content{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  gap: 15px;
 }
 
 

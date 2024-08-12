@@ -61,7 +61,7 @@ function UserDetails() {
       <p>{residencia}</p>
       <p>{tiempoNuevoPais}</p>
       <br />
-      <Card>
+      <Card border="dark" style={{ width: "100%" }}>
         <Card.Body>
           <Card.Title>Tableros de {oneUser.nombreCompleto}</Card.Title>
           {userTableros.map((eachTablero) => {

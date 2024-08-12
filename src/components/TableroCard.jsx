@@ -20,7 +20,7 @@ function TableroCard(props) {
   // En la linea del card link de editar hacia falta poner as={Link} para que lo reconociese como un link y no usar el href. 
   return (
     <div>
-      <Card border="primary" style={{ width: "100%" }}>
+      <Card border="light" style={{ width: "100%" }}>
         <div className="profileDiv">
           <Card.Img variant="top" src={imagen} />
           <div>
@@ -30,10 +30,13 @@ function TableroCard(props) {
             </Card.Body>
 
             <Card.Body>
-              <Card.Link as={Link} to={`/tablero-creativo/${_id}/editar`}>
+              {/* <Card.Link as={Link} to={`/tablero-creativo/${_id}/editar`}>
                 Editar
-              </Card.Link>
-              <Card.Link href="#"><Button onClick={deleteTablero}>Eliminar</Button></Card.Link>
+              </Card.Link> */}
+
+              <Card.Link as={Link} to={`/tablero-creativo/${_id}/editar`}><Button variant="dark" type="submit" className="mb-5" onClick={deleteTablero}>Editar</Button></Card.Link>
+
+              <Card.Link href="#"><Button variant="dark" type="submit" className="mb-5" onClick={deleteTablero}>Eliminar</Button></Card.Link>
             </Card.Body>
           </div>
         </div>

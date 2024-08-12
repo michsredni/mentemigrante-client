@@ -61,7 +61,7 @@ function LoginPage() {
         <Form.Group className="mb-3" controlId="contraseña">
           <Form.Label>Contraseña :</Form.Label>
           <Form.Control
-            type="text"
+            type="password"
             value={contraseña}
             onChange={handlecontraseñaChange}
           />{" "}

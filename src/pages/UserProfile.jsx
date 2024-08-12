@@ -94,7 +94,7 @@ function UserProfile() {
         </div>
       </Card>
       <br />
-      <Card>
+      <Card border="dark" style={{ width: "100%"}}>
         <Card.Body>
           <Card.Title>Mis Tableros</Card.Title>
           {ownTableros.map((eachTablero) => {
