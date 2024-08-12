@@ -9,7 +9,7 @@ import UserProfile from './pages/UserProfile';
 import PsicoList from './pages/PsicoList';
 import PsicoDetails from './pages/PsicoDetails';
 import TallerList from './pages/TallerList';
-import TallerDetails from './pages/TallerDetails';
+import TallerDetails from './components/TallerDetails';
 import CreateTablero from './pages/CreateTablero';
 import UserList from './pages/UserList';
 import UserDetails from './pages/UserDetails';

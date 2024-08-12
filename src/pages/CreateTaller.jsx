@@ -1,23 +1,49 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Form, Button, Card } from "react-bootstrap";
+import service from "../service/service.config";
 
 function CreateTaller() {
-  const navigate = useNavigate()
-  const [nombre, setNombre] = useState("")
-  const [tallerDescripcion, setTallerDescripcion] = useState("")
-  const [duracion, setDuracion] = useState("")
-  const [imagen, setImagen] = useState("")
-  const [usuarios, setUsuarios] = useState([])
+  const navigate = useNavigate();
+  const [nombre, setNombre] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [duracion, setDuracion] = useState("");
+  const [usuarios, setUsuarios] = useState([]);
+  const [imageUrl, setImageUrl] = useState(""); 
+  const [isUploading, setIsUploading] = useState(false); 
+
+  const handleFileUpload = async (event) => {
+    if (!event.target.files[0]) {
+      return;
+    }
+  
+    setIsUploading(true); 
+  
+    const uploadData = new FormData(); 
+    uploadData.append("image", event.target.files[0]);
+  
+    try {
+      const response = await service.post("/upload", uploadData);
+  
+      setImageUrl(response.data.imageUrl);
+      setIsUploading(false); 
+    } catch (error) {
+      console.error("Error uploading the image", error);
+      setIsUploading(false); 
+    }
+  };
+
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const nuevoTaller = {
       nombre,
-      tallerDescripcion,
+      descripcion,
       duracion,
-      imagen,
-
-      usuarios,
+      imagen: imageUrl,
+      usuarios
+    
     };
 
     try {
@@ -27,14 +53,17 @@ function CreateTaller() {
       console.log(error);
     }
   };
-  
+
   return (
     <div>
-      <h2>Crea un Taller</h2>
+      
       <Card border="dark" style={{ width: "100%" }}>
-        <h3 className="my-4">Crea tu Tablero</h3>
+        <h3 className="my-4">Crea tu Taller</h3>
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="d-flex flex-column justify-content-center align-items-center mb-5" controlId="formGridNombre">
+          <Form.Group
+            className="d-flex flex-column justify-content-center align-items-center mb-5"
+            controlId="formGridNombre"
+          >
             <Form.Label>Nombre</Form.Label>
             <Form.Control
               type="text"
@@ -43,16 +72,37 @@ function CreateTaller() {
               onChange={(e) => setNombre(e.target.value)}
             />
           </Form.Group>
-          <Form.Group className="d-flex flex-column justify-content-center align-items-center mb-5" controlId="formGridDescripcion">
+          <Form.Group
+            className="d-flex flex-column justify-content-center align-items-center mb-5"
+            controlId="formGridDescripcion"
+          >
             <Form.Label>Descripción</Form.Label>
             <Form.Control
               as="textarea"
               rows={6}
-              placeholder="Introduce una breve explicación del tablero"
+              placeholder="Introduce una breve explicación del taller"
               className="custom-form-control"
-              value={tallerDescripcion}
-              onChange={(e) => setTallerDescripcion(e.target.value)}
+              value={descripcion}
+              onChange={(e) => setDescripcion(e.target.value)}
             />
+          </Form.Group>
+          <Form.Group
+            className="d-flex flex-column justify-content-center align-items-center mb-5"
+            controlId="formGridDuracion"
+          >
+            <Form.Label>Duración</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Introduce el tiempo de duración"
+              className="custom-form-control"
+              value={duracion}
+              onChange={(e) => setDuracion(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group
+            className="d-flex flex-column justify-content-center align-items-center mb-5"
+            controlId="formGridImagen"
+          >
           </Form.Group>
           <Form.Group className="d-flex flex-column justify-content-center align-items-center mb-5" controlId="formGridImagen">
             <Form.Label>Imagen</Form.Label>
@@ -63,13 +113,15 @@ function CreateTaller() {
               disabled={isUploading}
             />
           </Form.Group>
-          <Button variant="dark" type="submit" className="mb-5">
+          
+
+          <Button variant="dark" type="submit" className="mb-5" disabled={isUploading || !imageUrl}>
             Crear
           </Button>
         </Form>
       </Card>
     </div>
-  )
+  );
 }
 
-export default CreateTaller
+export default CreateTaller;

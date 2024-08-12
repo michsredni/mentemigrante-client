@@ -1,9 +1,21 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Button, Card } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import service from "../service/service.config";
 
 function TableroCard(props) {
+  const navigate = useNavigate()
   const { titulo, descripcion, imagen, _id } = props.eachTablero;
+
+  const deleteTablero = async () =>{
+    console.log("tratando de borrar")
+    try {
+      await service.delete(`/tableros/${_id}`)
+      window.location.reload();
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   // En la linea del card link de editar hacia falta poner as={Link} para que lo reconociese como un link y no usar el href. 
   return (
@@ -21,7 +33,7 @@ function TableroCard(props) {
               <Card.Link as={Link} to={`/tablero-creativo/${_id}/editar`}>
                 Editar
               </Card.Link>
-              <Card.Link href="#">Eliminar</Card.Link>
+              <Card.Link href="#"><Button onClick={deleteTablero}>Eliminar</Button></Card.Link>
             </Card.Body>
           </div>
         </div>

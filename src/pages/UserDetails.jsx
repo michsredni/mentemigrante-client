@@ -42,7 +42,7 @@ function UserDetails() {
       <p>{tiempoNuevoPais}</p>
     </div>
 
-    // TO DO Falta agregar los tableros de cada usuario
+   
   )
 }
 
