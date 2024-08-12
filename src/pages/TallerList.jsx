@@ -33,6 +33,8 @@ function TallerList() {
   return (
     <div>
       <h2>Talleres</h2>
+      <p>Nuestros talleres están diseñados para apoyar la salud mental de las personas migrantes, reconociendo los desafíos únicos que enfrentan durante su proceso migratorio. A través de un enfoque integrador, buscamos ofrecer herramientas que no solo proporcionen alivio emocional, sino que también promuevan una mayor comprensión de las dinámicas sociales que afectan su bienestar.</p>
+      
       {talleres.map((eachTaller) => {
         return(
           <TallerDetails key={eachTaller._id} eachTaller={eachTaller}/>

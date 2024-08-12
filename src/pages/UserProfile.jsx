@@ -34,7 +34,7 @@ function UserProfile() {
       const responseTableros = await service.get(
         `/tableros/${ownProfile._id}/por-usuario`
       );
-      console.log(responseTableros.data);
+      console.log("Data Tableros: ",responseTableros.data);
       setOwnTableros(responseTableros.data);
     } catch (error) {
       console.log(error);

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
 
 function TableroCard(props) {
-  const { titulo, descripcion, imagen } = props.eachTablero;
+  const { titulo, descripcion, imagen, _id } = props.eachTablero;
 
+  // En la linea del card link de editar hacia falta poner as={Link} para que lo reconociese como un link y no usar el href. 
   return (
     <div>
       <Card border="primary" style={{ width: "100%" }}>
@@ -16,7 +18,9 @@ function TableroCard(props) {
             </Card.Body>
 
             <Card.Body>
-              <Card.Link href="#">Editar</Card.Link>
+              <Card.Link as={Link} to={`/tablero-creativo/${_id}/editar`}>
+                Editar
+              </Card.Link>
               <Card.Link href="#">Eliminar</Card.Link>
             </Card.Body>
           </div>
