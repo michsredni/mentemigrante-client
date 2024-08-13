@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import service from "../service/service.config";
 import { Form, Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { ReactSketchCanvas } from 'react-sketch-canvas';
+import Canvas from "../components/Canvas";
 
 function CreateTablero() {
   const navigate = useNavigate();
@@ -90,6 +92,7 @@ function CreateTablero() {
               disabled={isUploading}
             />
           </Form.Group>
+          <Canvas />
           <Button variant="dark" type="submit" className="mb-5" disabled={isUploading || !imageUrl} >
             Crear
           </Button>

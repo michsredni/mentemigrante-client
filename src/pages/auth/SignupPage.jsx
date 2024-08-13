@@ -18,6 +18,7 @@ function SignupPage() {
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlecontraseñaChange = (e) => setContraseña(e.target.value);
+  const handleRolChange = (e) => setRol(e.target.value)
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ function SignupPage() {
       residencia,
       tiempoNuevoPais,
       especializacion,
-      // rol: req.body????
+      rol // TODO hacer que se pinte el rol y el usuario eliga si es usuario o psicologo
     };
 
     try {
@@ -114,17 +115,13 @@ function SignupPage() {
               onChange={(e) => setTiempoNuevoPais(e.target.value)}
             /></Form.Group>
 
-        {/* <Form.Group
-            className="d-flex flex-column justify-content-center align-items-center mb-5"
-            controlId="formGridNombre" >
-            <Form.Check // prettier-ignore
-            type="switch"
-            value={rol}
-            default="user"
-            id="custom-switch"
-            label="Soy psicologo"
-            onChange={(e) => setRol(e.target.value)}
-          /></Form.Group> */}
+        {/* TODO hacer que se pinte el rol y el usuario eliga si es usuario o psicologo */}
+
+        <Form.Select onChange={handleRolChange} aria-label="Default select example">
+         <option>Selecciona tu rol</option>
+         <option value="user">Usuario</option>
+         <option value="psicologo">Psicologo</option>
+         </Form.Select>
 
         <br />
 
