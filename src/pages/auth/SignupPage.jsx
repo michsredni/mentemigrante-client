@@ -49,7 +49,7 @@ function SignupPage() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="contraseña">
-          <Form.Label>Contraseña :</Form.Label>
+          <Form.Label>Contraseña:</Form.Label>
           <Form.Control
             type="text"
             value={contraseña}
@@ -59,7 +59,7 @@ function SignupPage() {
 
         <br />
 
-        <Button variant="primary" type="submit">
+        <Button variant="dark" type="submit">
           Registrarse
         </Button>
 

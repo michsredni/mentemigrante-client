@@ -5,8 +5,6 @@ import { Navigate } from 'react-router-dom';
 
 //componente para hacer privada ciertas paginas de la app
 function Private(props) {
-    
-    
 
     const{estaLoggeado} = useContext(AuthContext);
     

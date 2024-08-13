@@ -8,6 +8,9 @@ function AuthWrapper(props) {
   const [estaLoggeado, setEstaLoggeado] = useState(false);
   const [idUsuarioLoggeado, setIdUsuarioLoggeado] = useState(null);
   const [estaConfirmandoInfo, setEstaConfirmandoInfo] = useState(true);
+  // Estados de roles de usuarios
+  const [isPsico, setIsPsico] = useState(false)
+  const [isUsuario, setIsUsuario] = useState(false)
 
   const usuarioAutenticado = async () => {
     //funcion que llama a la ruta verify para verificar el TOKEN y actualizar los estados
@@ -18,7 +21,8 @@ function AuthWrapper(props) {
       setEstaLoggeado(false);
       setIdUsuarioLoggeado(null);
       setEstaConfirmandoInfo(false);
-
+      setIsPsico(false)
+      setIsUsuario(false)
       return;
     }
 
@@ -28,11 +32,20 @@ function AuthWrapper(props) {
       setEstaLoggeado(true);
       setIdUsuarioLoggeado(response.data._id);
       setEstaConfirmandoInfo(false); // accion de estar autenticando, se ve o no el spinner ! falso porq ya se autentico 
+      if(response.data.rol === "psicologo"){
+        setIsPsico(true)
+        setIsUsuario(false)
+      } else if(response.data.rol === "user"){
+        setIsUsuario(true)
+        setIsPsico(false)
+      } 
     } catch (error) {
       console.log(error);
       setEstaLoggeado(false);
       setIdUsuarioLoggeado(null);
       setEstaConfirmandoInfo(false);
+      setIsPsico(false)
+      setIsUsuario(false)
     }
   };
 
@@ -40,6 +53,8 @@ function AuthWrapper(props) {
     estaLoggeado,
     idUsuarioLoggeado,
     usuarioAutenticado,
+    isPsico,
+    isUsuario
   };
 
   useEffect(() => {

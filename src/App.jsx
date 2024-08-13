@@ -22,6 +22,9 @@ import ErrorPage from './pages/ErrorPage';
 //componentes
 import Navbar from './components/Navbar'
 import Private from './components/auth/Private';
+import Psicologo from './components/auth/Psicologo';
+import User from './components/auth/User'
+import PsicologoSignupPage from './pages/auth/PsicologoSignupPage';
 
 
 
@@ -38,17 +41,18 @@ function App() {
       <Routes>
         <Route path ="/" element={<HomePage/>}/>
         <Route path ="/registro" element={<SignupPage/>}/>
+        <Route path ="/registro-psicologo" element={<PsicologoSignupPage/>}/>
         <Route path ="/iniciar-sesion" element={<LoginPage/>}/>
         <Route path ="/sobre-nosotros" element={<AboutUsPage/>}/>
         <Route path ="/perfil" element={ <Private> <UserProfile/> </Private>}/>
         <Route path ="/psicologos" element={ <Private> <PsicoList/> </Private>}/>
         <Route path ="/psicologos/:psicoId" element={ <Private> <PsicoDetails/> </Private>}/>
         <Route path ="/talleres" element={<TallerList/>}/>
-        <Route path ="/talleres/crear" element={ <Private> <CreateTaller/> </Private>}/>
+        <Route path ="/talleres/crear" element={ <Private> <Psicologo> <CreateTaller/> </Psicologo>  </Private>}/>
         <Route path ="/talleres/:tallerId" element={<TallerDetails/>}/>
-        <Route path ="/talleres/:tallerId/editar" element={ <Private> <EditTaller/> </Private>}/>
-        <Route path ="/tablero-creativo/crear" element={ <Private> <CreateTablero/> </Private>}/>
-        <Route path ="/tablero-creativo/:tableroId/editar" element={ <Private> <EditTablero/> </Private>}/>   
+        <Route path ="/talleres/:tallerId/editar" element={ <Private> <Psicologo> <EditTaller/> </Psicologo>  </Private>}/>
+        <Route path ="/tablero-creativo/crear" element={ <Private> <User> <CreateTablero/> </User>  </Private>}/>
+        <Route path ="/tablero-creativo/:tableroId/editar" element={ <Private> <User> <EditTablero/> </User> </Private>}/>   
         <Route path ="/usuarios" element={<Private> <UserList/> </Private>}/>
         <Route path ="/usuarios/:usuarioId" element={<Private> <UserDetails/> </Private>}/>
         <Route path ="*" element={<NotFoundPage/>}/>
