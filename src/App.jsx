@@ -24,7 +24,7 @@ import Navbar from './components/Navbar'
 import Private from './components/auth/Private';
 import Psicologo from './components/auth/Psicologo';
 import User from './components/auth/User'
-import PsicologoSignupPage from './pages/auth/PsicologoSignupPage';
+import EditProfileFormPage from './pages/EditProfileFormPage';
 
 
 
@@ -41,10 +41,10 @@ function App() {
       <Routes>
         <Route path ="/" element={<HomePage/>}/>
         <Route path ="/registro" element={<SignupPage/>}/>
-        <Route path ="/registro-psicologo" element={<PsicologoSignupPage/>}/>
         <Route path ="/iniciar-sesion" element={<LoginPage/>}/>
         <Route path ="/sobre-nosotros" element={<AboutUsPage/>}/>
         <Route path ="/perfil" element={ <Private> <UserProfile/> </Private>}/>
+        <Route path ="/perfil/editar" element={ <Private> <EditProfileFormPage/> </Private>}/>
         <Route path ="/psicologos" element={ <Private> <PsicoList/> </Private>}/>
         <Route path ="/psicologos/:psicoId" element={ <Private> <PsicoDetails/> </Private>}/>
         <Route path ="/talleres" element={<TallerList/>}/>

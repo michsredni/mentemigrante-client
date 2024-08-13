@@ -6,7 +6,7 @@ import logo from "../assets/MentEmigrante-logo.png";
 
 function MyNavbar() {
   const navigate = useNavigate();
-  const { estaLoggeado, usuarioAutenticado, isUser } = useContext(AuthContext);
+  const { estaLoggeado, usuarioAutenticado, isUsuario } = useContext(AuthContext);
 
   const handleLogout = () => {
     localStorage.removeItem("authToken");
@@ -30,13 +30,12 @@ function MyNavbar() {
           <Nav className="pl-5 w-100 justify-content-between">
             {!estaLoggeado && <Nav.Link as={Link} to="/sobre-nosotros">Sobre nosotros</Nav.Link>}
             {!estaLoggeado && <Nav.Link as={Link} to="/registro">Registro</Nav.Link>}
-            {!estaLoggeado && <Nav.Link as={Link} to="/registro-psicologo">Registrate como Psicologo</Nav.Link>}
             {!estaLoggeado && <Nav.Link as={Link} to="/iniciar-sesion">Iniciar Sesion</Nav.Link>}
             {estaLoggeado && <Nav.Link as={Link} to="/perfil">Perfil</Nav.Link>}
             {estaLoggeado && <Nav.Link as={Link} to="/usuarios">Usuarios</Nav.Link>}
             {estaLoggeado && <Nav.Link as={Link} to="/psicologos">Psicologos</Nav.Link>}
             {estaLoggeado && <Nav.Link as={Link} to="/talleres">Talleres</Nav.Link>}
-            {isUser && <Nav.Link as={Link} to="/tablero-creativo/crear">Crear tablero</Nav.Link>}
+            {isUsuario && <Nav.Link as={Link} to="/tablero-creativo/crear">Crear tablero</Nav.Link>}
             {estaLoggeado && (
               <Button className="cerrarSesionButton" type="submit" onClick={handleLogout}>
                 <span>Cerrar sesión</span>

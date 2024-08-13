@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../assets/MentEmigrante-logo.png";
 import cardImageOne from "../assets/vector_1.png"
+import { AuthContext } from "../context/auth.context";
 
 function HomePage() {
+
+  const {estaLoggeado} = useContext(AuthContext)
+
   return (
     <div>
       <div className="hero-section">
@@ -18,11 +22,12 @@ function HomePage() {
             recibir un apoyo. Hay talleres todos los días: regístrate para unirte
             a la diversión.
           </h6>
-          <Link to={"/registro"}>
+          {!estaLoggeado && <Link to={"/registro"}>
             <Button className="botonRegistro mb-5" type="submit">
               Unirse a Mentemigrante
             </Button>
-          </Link>
+          </Link>}
+          
         </div>
       </div>
       <div className="cards-home">

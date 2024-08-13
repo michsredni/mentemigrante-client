@@ -30,12 +30,7 @@ function TableroCard(props) {
             </Card.Body>
 
             <Card.Body>
-              {/* <Card.Link as={Link} to={`/tablero-creativo/${_id}/editar`}>
-                Editar
-              </Card.Link> */}
-
-              <Card.Link as={Link} to={`/tablero-creativo/${_id}/editar`}><Button variant="dark" type="submit" className="mb-5" onClick={deleteTablero}>Editar</Button></Card.Link>
-
+              <Card.Link as={Link} to={`/tablero-creativo/${_id}/editar`}><Button variant="dark" type="submit" className="mb-5" >Editar</Button></Card.Link>
               <Card.Link href="#"><Button variant="dark" type="submit" className="mb-5" onClick={deleteTablero}>Eliminar</Button></Card.Link>
             </Card.Body>
           </div>

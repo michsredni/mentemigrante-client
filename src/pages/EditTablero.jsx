@@ -18,7 +18,7 @@ function EditTablero() {
   }, []);
 
   const getTablero = async () => {
-    //metodos set para que los datos del tablero para que se muestren en el formulario.
+
     try {
       const response = await service.get(`/tableros/${params.tableroId}`); 
       console.log(response.data);

@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import service from '../service/service.config';
 import { Spinner } from 'react-bootstrap';
+import { AuthContext } from '../context/auth.context';
 
 function TallerDetails(props) {
   const {creador, descripcion, duracion, imagen, nombre, usuarios, _id} = props.eachTaller
 
   
   const[oneTaller, setOneTaller] = useState(null)
-  const [eachUsuario, setEachUsuario] = useState([])
+  const { idUsuarioLoggeado, isUsuario } = useContext(AuthContext);
 
   useEffect(() => {
     getDataTaller()
@@ -17,7 +18,7 @@ function TallerDetails(props) {
   const getDataTaller = async () =>{
     try {
       const response = await service.get(`/talleres/${_id}`)
-      console.log(response.data)
+      // console.log(response.data)
       setOneTaller(response.data)
     } catch (error) {
       console.log(error)
@@ -51,6 +52,8 @@ function TallerDetails(props) {
     }
   }
 
+  console.log(creador)
+  console.log(idUsuarioLoggeado)
 
   return (
     <div>
@@ -64,9 +67,10 @@ function TallerDetails(props) {
       })}</p>
       <p>{descripcion}</p>
       <p>{duracion}</p>
-      <Link><button onClick={handleRegister}>Registrarse</button></Link>
-      <Link to={`/talleres/${_id}/editar`}><button>Editar</button></Link> {/* boton SOLO para psicologo */}
-      <Link><button onClick={deleteTaller}>Borrar</button></Link>
+      {/* boton SOLO para usuarios (NO PSICOLOGOS) */}
+      {isUsuario && <Link><button onClick={handleRegister}>Registrarse</button></Link>}
+      {/* boton SOLO para creador de este taller */}
+      {creador._id == idUsuarioLoggeado ? (<> <Link to={`/talleres/${_id}/editar`}><button>Editar</button></Link> <Link><button onClick={deleteTaller}>Borrar</button></Link> </>) : null}
     </div>
   )
 }

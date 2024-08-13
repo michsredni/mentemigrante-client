@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import { Spinner } from "react-bootstrap";
+import React, { useContext, useEffect, useState } from "react";
+import { Button, Card, ListGroup, Spinner} from "react-bootstrap";
+import { Link } from 'react-router-dom'
 import service from "../service/service.config";
 import TableroCard from "../components/TableroCard";
+import { AuthContext } from "../context/auth.context";
 
 function UserProfile() {
   const [ownProfile, setOwnProfile] = useState(null);
   const [ownTableros, setOwnTableros] = useState([]);
+
+  const {isUsuario} = useContext(AuthContext)
 
   useEffect(() => {
     getData();
@@ -22,7 +24,7 @@ function UserProfile() {
   const getData = async () => {
     try {
       const response = await service.get("/usuarios/propio");
-      console.log(response.data);
+      // console.log(response.data);
       setOwnProfile(response.data);
     } catch (error) {
       console.log(error);
@@ -34,7 +36,7 @@ function UserProfile() {
       const responseTableros = await service.get(
         `/tableros/${ownProfile._id}/por-usuario`
       );
-      console.log("Data Tableros: ",responseTableros.data);
+      // console.log("Data Tableros: ",responseTableros.data);
       setOwnTableros(responseTableros.data);
     } catch (error) {
       console.log(error);
@@ -90,11 +92,12 @@ function UserProfile() {
                 {formatDate(ownProfile.createdAt)}
               </ListGroup.Item>
             </ListGroup>
+          <Link to={`/perfil/editar`}><Button variant="dark" type="submit" className="mb-5">Editar mi perfil</Button></Link>
           </div>
         </div>
       </Card>
       <br />
-      <Card border="dark" style={{ width: "100%"}}>
+      {isUsuario && <Card border="dark" style={{ width: "100%"}}>
         <Card.Body>
           <Card.Title>Mis Tableros</Card.Title>
           {ownTableros.map((eachTablero) => {
@@ -103,7 +106,8 @@ function UserProfile() {
             );
           })}
         </Card.Body>
-      </Card>
+      </Card>}
+      
     </>
   );
 }

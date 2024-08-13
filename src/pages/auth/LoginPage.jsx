@@ -69,7 +69,7 @@ function LoginPage() {
 
         <br />
 
-        <Button variant="primary" type="submit">
+        <Button variant="dark" type="submit">
           Iniciar Sesion
         </Button>
 

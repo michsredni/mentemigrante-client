@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import service from "../service/service.config";
 import { Button, Spinner } from "react-bootstrap";
 import TallerDetails from "../components/TallerDetails";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 function TallerList() {
   const [talleres, setTalleres] = useState([]);
+  const { isPsico } = useContext(AuthContext);
 
   useEffect(() => {
     getData();
@@ -33,11 +35,12 @@ function TallerList() {
     <div>
       <h2>Talleres</h2>
       <br />
-      <Link to={"/talleres/crear"}>
+      {isPsico &&
+        <Link to={"/talleres/crear"}>
       <Button variant="dark" type="submit" className="mb-5">
         Crea tu Taller
-      </Button>
-      </Link>
+      </Button></Link>} 
+      
       
       {talleres.map((eachTaller) => {
         return <TallerDetails key={eachTaller._id} eachTaller={eachTaller} />;
