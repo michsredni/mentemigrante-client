@@ -1,26 +1,24 @@
 #root {
-  margin: 5.3% auto;
+  margin: 0; 
   text-align: center;
   background-color: #F8EDED;
   color: black;
 }
 
 .navbar {
-  background-color: #173B45 !important; /* Fondo transparente */
-  position: fixed; /* Fija la navbar en la parte superior */
+  background-color: #173B45 !important; 
+  position: fixed; 
   top: 0;
   left: 0;
   right: 0;
   z-index: 1030;
   padding: 20px 20px;
-}
-
-.logo{
-  filter: invert(100%);
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-content {
-  background-color: #173B45; /* Fondo transparente */
+  background-color: #173B45;
   padding: 0 1rem;
 }
 
@@ -31,13 +29,17 @@
   color: white;
 }
 
+.navbar img {
+  filter: invert(100%);
+}
+
 .navbar-dark .navbar-nav .nav-link {
-  color: #F8EDED; /* Ajusta el color del texto para que sea visible sobre fondos claros */
-  margin-left: 500px;
+  color: #F8EDED;
+  margin-left: auto;
 }
 
 .navbar-dark .navbar-brand img {
-  filter: brightness(0) invert(1); /*Para hacer que el logo sea visible en fondos oscuros */
+  filter: brightness(0) invert(1);
 }
 
 .navbar-brand {
@@ -56,37 +58,39 @@
   color: #173B45;
 }
 
-
-/* HOME PAGE */
-.hero-section{
- width: 100%;
- height: 900px;
- display: flex;
- flex-direction: column;
+/* Home Page */
+.hero-section {
+  width: 100%;
+  height: 900px;
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
    url("./assets/fondo.jpeg");
- background-size: cover;
- background-position: center;
- justify-content: center;
-
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
 }
- .hero-text{
+
+.hero-section img {
+  filter: invert(100%);
+}
+
+.hero-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   color: #F8EDED;
- }
+}
 
- .hero-text h2{
+.hero-text h2 {
   margin-top: 2vh;
   margin-bottom: 3vh;
- }
+}
 
- .hero-text h6{
+.hero-text h6 {
   margin-bottom: 5vh;
- }
-
+}
 
 .cards-home {
   text-align: center;
@@ -94,7 +98,7 @@
   color: #173B45;
 }
 
-.cards-home-content{
+.cards-home-content {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -102,21 +106,19 @@
   margin: 2% 20%;
 }
 
-.botonRegistro{
+.botonRegistro {
   background: #173B45;
   border: none;
   color: #F8EDED;
 }
 
-.botonRegistro:hover{
+.botonRegistro:hover {
   background: #F8EDED;
   border: none;
   color: #173B45;
 }
 
-
-
-/* PROFILE */
+/* Profile */
 .profileDiv {
   display: flex;
   flex-direction: row;
@@ -127,16 +129,15 @@
 .profileDiv img {
   width: 40%;
   margin-left: 3px;
-  
 }
 
-/* TABLERO */
-.tablero-form-card{
+/* Tablero */
+.tablero-form-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%; /* Asegúrate de que la tarjeta tenga una altura definida */
+  height: 100%;
 }
 
 .custom-form-control {
@@ -145,12 +146,12 @@
 }
 
 .custom-form-control:focus {
-  border-color: black; 
+  border-color: black;
   box-shadow: 0 0 0 0.2rem rgba(50, 52, 54, 0.25);
 }
 
-/* USER */
-.user-card{
+/* User */
+.user-card {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -159,7 +160,120 @@
   margin: 12px;
 }
 
-
 .user-card img {
   width: 50%;
 }
+
+/* Sign Up Page */
+.fondo-signup {
+  background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
+  url("./assets/fondo.jpeg");
+  background-size: cover;
+  min-height: 100vh;
+  padding: 20vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-signup {
+  width: 80%;
+  max-width: 400px;
+  min-width: 280px;
+}
+
+.signup-form-control {
+  border-color: #F8EDED;
+  width: 100%;
+}
+
+.signup-form-control:focus {
+  border-color: #FF8225; 
+  box-shadow: 0 0 0 0.2rem rgba(50, 52, 54, 0.25);
+}
+
+.signup-card {
+  color: #F8EDED;
+  background: rgba(23, 59, 69, 0.9);
+  border-radius: 20px;
+  padding: 5% 10%;
+  
+}
+
+.signup-card .card-text {
+  font-size: smaller;
+  margin-top: 2vh;
+}
+
+.signup-card .card-link {
+  color: #FF8225;
+  margin: 0;
+  padding: 0;
+}
+
+.signup-card button {
+  color: #F8EDED;
+  background: #173B45;
+  border-color: #FF8225;
+}
+
+.signup-card button:hover {
+  color: #173B45;
+  background: #F8EDED;
+  border-color: #173B45;
+}
+
+.signup-card .btn:active {
+  color: #F8EDED;
+  background: #173B45;
+  border-color: #FF8225;
+}
+
+/* About us page*/
+
+.about-page {
+  background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
+  url("./assets/fondo.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+.about-card {
+  background: rgba(23, 59, 69, 0.9);
+  color: #F8EDED;
+  border-radius: 20px;
+  padding: 3% 5%;
+}
+
+.about-card h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.about-card h3 {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.about-card p, .about-card ul {
+  margin-bottom: 1rem;
+}
+
+.about-card ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+}
+
+.about-card ul li {
+  margin-bottom: 0.5rem;
+}
+
+

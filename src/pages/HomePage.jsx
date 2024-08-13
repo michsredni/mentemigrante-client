@@ -46,7 +46,7 @@ function HomePage() {
           </Card>
           <Card style={{backgroundColor: '#173B45', color: '#F8EDED', padding: '5% 0' }}>
             <Card.Body>
-              <Card.Title>¿Qué Ofrecemos?</Card.Title>
+              <Card.Title>¿Qué ofrecemos?</Card.Title>
               <Card.Text>
                 Te ayudamos a cuestionar y desafiar las estructuras de poder que
                 afectan tu vida, para que puedas cuidar tu salud mental mientras

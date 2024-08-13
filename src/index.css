@@ -1,3 +1,4 @@
+/* General Styles */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -25,10 +26,11 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
   background-color: #F8EDED;
+  padding-top: 60px; /* Adjust based on navbar height */
 }
 
 h1 {
@@ -65,5 +67,82 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* Navbar */
+.navbar {
+  background-color: #173B45 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  padding: 20px 20px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better separation */
+}
+
+/* Adjust content margin to avoid being hidden behind the navbar */
+.main-content {
+  margin-top: 80px; /* Adjust based on your navbar height */
+  flex: 1; /* Ensure content grows to fill available space */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.4em;
+  }
+
+  button {
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+  }
+
+  .navbar {
+    padding: 15px;
+  }
+
+  .main-content {
+    margin-top: 70px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  button {
+    padding: 0.4em 0.8em;
+    font-size: 0.8em;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .main-content {
+    margin-top: 60px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 1.6em;
+  }
+
+  button {
+    padding: 0.3em 0.7em;
+    font-size: 0.75em;
+  }
+
+  .navbar {
+    padding: 5px;
+  }
+
+  .main-content {
+    margin-top: 50px; /* Adjust for very small screens */
   }
 }
