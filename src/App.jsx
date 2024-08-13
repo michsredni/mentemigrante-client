@@ -48,11 +48,11 @@ function App() {
         <Route path ="/psicologos" element={ <Private> <PsicoList/> </Private>}/>
         <Route path ="/psicologos/:psicoId" element={ <Private> <PsicoDetails/> </Private>}/>
         <Route path ="/talleres" element={<TallerList/>}/>
-        <Route path ="/talleres/crear" element={ <Private> <Psicologo> <CreateTaller/> </Psicologo>  </Private>}/>
+        <Route path ="/talleres/crear" element={ <Psicologo> <CreateTaller/> </Psicologo> }/>
         <Route path ="/talleres/:tallerId" element={<TallerDetails/>}/>
-        <Route path ="/talleres/:tallerId/editar" element={ <Private> <Psicologo> <EditTaller/> </Psicologo>  </Private>}/>
-        <Route path ="/tablero-creativo/crear" element={ <Private> <User> <CreateTablero/> </User>  </Private>}/>
-        <Route path ="/tablero-creativo/:tableroId/editar" element={ <Private> <User> <EditTablero/> </User> </Private>}/>   
+        <Route path ="/talleres/:tallerId/editar" element={ <Psicologo> <EditTaller/> </Psicologo>  }/>
+        <Route path ="/tablero-creativo/crear" element={ <User> <CreateTablero/> </User>}/>
+        <Route path ="/tablero-creativo/:tableroId/editar" element={ <User> <EditTablero/> </User>}/>   
         <Route path ="/usuarios" element={<Private> <UserList/> </Private>}/>
         <Route path ="/usuarios/:usuarioId" element={<Private> <UserDetails/> </Private>}/>
         <Route path ="*" element={<NotFoundPage/>}/>
