@@ -29,7 +29,7 @@ function MyNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="pl-5 w-100 justify-content-between">
             {!estaLoggeado && <Nav.Link as={Link} to="/registro">Registro</Nav.Link>}
-            {!estaLoggeado && <Nav.Link as={Link} to="/registro-psicologo">Registro</Nav.Link>}
+            {!estaLoggeado && <Nav.Link as={Link} to="/registro-psicologo">Registrate como Psicologo</Nav.Link>}
             {!estaLoggeado && <Nav.Link as={Link} to="/iniciar-sesion">Iniciar Sesion</Nav.Link>}
             {!estaLoggeado && <Nav.Link as={Link} to="/sobre-nosotros">Sobre nosotros</Nav.Link>}
             {estaLoggeado && <Nav.Link as={Link} to="/perfil">Perfil</Nav.Link>}
