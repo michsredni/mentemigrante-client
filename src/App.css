@@ -61,7 +61,7 @@
 /* Home Page */
 .hero-section {
   width: 100%;
-  height: 900px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
@@ -83,13 +83,14 @@
   color: #F8EDED;
 }
 
-.hero-text h2 {
-  margin-top: 2vh;
+.hero-text h1 {
+  margin-top: 4vh;
   margin-bottom: 3vh;
 }
 
-.hero-text h6 {
+.hero-text h4 {
   margin-bottom: 5vh;
+  padding: 0 4vw;
 }
 
 .cards-home {

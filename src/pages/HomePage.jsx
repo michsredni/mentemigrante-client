@@ -16,12 +16,12 @@ function HomePage() {
         {/* <img src={fondo} width="100%" alt="migration-image" /> */}
         <div className="hero-text">
           <img className="logo" src={logo} alt="logo" width={"500px"} />
-          <h2>Tu espacio seguro en cualquier lugar</h2>
-          <h6>
+          <h1>Tu espacio seguro en cualquier lugar</h1>
+          <h4>
             App de salud mental para personas migras de Latinoamérica que buscan
             recibir un apoyo. Hay talleres todos los días: regístrate para unirte
             a la diversión.
-          </h6>
+          </h4>
           {!estaLoggeado && <Link to={"/registro"}>
             <Button className="botonRegistro mb-5" type="submit">
               Unirse a Mentemigrante
