@@ -62,8 +62,8 @@ function UserProfile() {
   };
 
   return (
-    <>
-      <Card border="dark" style={{ width: "100%" }}>
+    <div className="user-profile">
+      <Card className="profile-card" border="dark" style={{ width: "30%" }}>
         <div className="profileDiv">
           <Card.Img variant="top" src={ownProfile.imagen} />
           <div>
@@ -92,14 +92,14 @@ function UserProfile() {
                 {formatDate(ownProfile.createdAt)}
               </ListGroup.Item>
             </ListGroup>
-          <Link to={`/perfil/editar`}><Button variant="dark" type="submit" className="mb-5">Editar mi perfil</Button></Link>
+          <Link to={`/perfil/editar`}><Button variant="dark" type="submit" className="mt-2 mb-5">Editar mi perfil</Button></Link>
           </div>
         </div>
       </Card>
       <br />
-      {isUsuario && <Card border="dark" style={{ width: "100%"}}>
+      {isUsuario && <Card className="tablero-card" style={{ width: "30%"}}>
         <Card.Body>
-          <Card.Title>Mis Tableros</Card.Title>
+          <Card.Title className="tableros-titulo">Mis Tableros</Card.Title>
           {ownTableros.map((eachTablero) => {
             return (
               <TableroCard key={eachTablero._id} eachTablero={eachTablero} />
@@ -108,7 +108,7 @@ function UserProfile() {
         </Card.Body>
       </Card>}
       
-    </>
+    </div>
   );
 }
 

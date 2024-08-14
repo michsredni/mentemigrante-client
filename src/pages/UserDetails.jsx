@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { Spinner, Card, ListGroup} from 'react-bootstrap';
-import service from '../service/service.config';
-import { useParams } from 'react-router-dom';
-import TableroCard from '../components/TableroCard';
+import React, { useEffect, useState } from "react";
+import { Spinner, Card, ListGroup } from "react-bootstrap";
+import service from "../service/service.config";
+import { useParams } from "react-router-dom";
+import TableroCard from "../components/TableroCard";
 
 function UserDetails() {
-
-  const params = useParams()
+  const params = useParams();
   const [oneUser, setOneUser] = useState(null);
   const [userTableros, setUserTableros] = useState([]);
-  
+
   useEffect(() => {
-    getDataUsuario()
-  }, [])
+    getDataUsuario();
+  }, []);
 
   useEffect(() => {
     if (oneUser) {
@@ -22,14 +21,14 @@ function UserDetails() {
 
   const getDataUsuario = async () => {
     try {
-      const response = await service.get(`/usuarios/${params.usuarioId}/id`)
-        // console.log(response.data)
-        setOneUser(response.data)
-      } catch (error) {
-      console.log(error)
+      const response = await service.get(`/usuarios/${params.usuarioId}/id`);
+      // console.log(response.data)
+      setOneUser(response.data);
+    } catch (error) {
+      console.log(error);
     }
-  }
-  
+  };
+
   const getTablerosData = async () => {
     try {
       const responseTableros = await service.get(
@@ -40,22 +39,27 @@ function UserDetails() {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   if (oneUser === null) {
-    return (<Spinner animation="border" role="status">
-      <span className="visually-hidden">Buscando información del usuario...</span>
-    </Spinner>)
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">
+          Buscando información del usuario...
+        </span>
+      </Spinner>
+    );
   }
 
-  const {imagen, nombreCompleto, nacionalidad, residencia, tiempoNuevoPais} = oneUser
-
+  const { imagen, nombreCompleto, nacionalidad, residencia, tiempoNuevoPais } =
+    oneUser;
 
   return (
-    <div className='user-details'>
-      <h1>Información sobre {nombreCompleto}</h1>
-    <Card className="user-details-card" style={{ width: "60%" }}>
-      <Card.Img variant="top" src={imagen} alt="foto" />
+    <div className="user-profile">
+      <h1 className="user-info-title">Información sobre {nombreCompleto}</h1>
+      <Card className="profile-card mt-5" style={{ width: "30%"}}>
+        <div className="profileDiv">
+          <Card.Img variant="top" src={imagen} alt="foto" />
           <Card.Body>
             <ListGroup className="list-group-flush">
               <ListGroup.Item>
@@ -72,8 +76,9 @@ function UserDetails() {
               </ListGroup.Item>
             </ListGroup>
           </Card.Body>
-    </Card>
-      <Card border="dark" style={{ width: "80%" }}>
+        </div>
+      </Card>
+      <Card className="tablero-card mt-4" border="dark" style={{ width: "30%" }}>
         <Card.Body>
           <Card.Title>Tableros de {nombreCompleto}</Card.Title>
           {userTableros.map((eachTablero) => {
@@ -84,9 +89,7 @@ function UserDetails() {
         </Card.Body>
       </Card>
     </div>
-
-   
-  )
+  );
 }
 
-export default UserDetails
+export default UserDetails;

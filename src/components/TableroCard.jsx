@@ -19,10 +19,10 @@ function TableroCard(props) {
   }
 
   return (
-    <div>
-      <Card border="light" style={{ width: "100%" }}>
+    <div className="tablero-card">
+      <Card style={{ width: "100%" }}>
         <div className="profileDiv">
-          <Card.Img variant="top" src={imagen} />
+          <Card.Img variant="top" src={imagen} style={{ width: '80%'}}/>
           <div>
             <Card.Body>
               <Card.Title>{titulo}</Card.Title>
