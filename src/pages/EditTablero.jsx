@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import service from "../service/service.config";
 import { Form, Button, Card } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import Canvas from "../components/Canvas";
 
 function EditTablero() {
   
@@ -12,6 +13,7 @@ function EditTablero() {
   const [descripcion, setDescripcion] = useState("");
   const [imageUrl, setImageUrl] = useState(""); 
   const [isUploading, setIsUploading] = useState(false); 
+  const [canvasImage, setCanvasImage] = useState("");
 
   useEffect(() => {
     getTablero(); 
@@ -58,7 +60,7 @@ function EditTablero() {
     const tableroEditado = {
       titulo,
       descripcion,
-      imagen: imageUrl
+      imagen: canvasImage || imageUrl
     };
 
    
@@ -104,6 +106,7 @@ function EditTablero() {
               disabled={isUploading}
             />
           </Form.Group>
+          <Canvas />
           <Button variant="dark" type="submit" className="mb-5" disabled={isUploading} >
             Editar
           </Button>

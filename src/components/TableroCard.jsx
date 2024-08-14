@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Button, Card } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import service from "../service/service.config";
 import { AuthContext } from "../context/auth.context";
 
 function TableroCard(props) {
-  const navigate = useNavigate()
   const { titulo, descripcion, imagen, _id, creador} = props.eachTablero;
   const { idUsuarioLoggeado } = useContext(AuthContext);
 
@@ -19,7 +18,6 @@ function TableroCard(props) {
     }
   }
 
-  // En la linea del card link de editar hacia falta poner as={Link} para que lo reconociese como un link y no usar el href. 
   return (
     <div>
       <Card border="light" style={{ width: "100%" }}>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import service from "../service/service.config";
 import { Form, Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { ReactSketchCanvas } from 'react-sketch-canvas';
 import Canvas from "../components/Canvas";
 
 function CreateTablero() {
@@ -11,6 +10,7 @@ function CreateTablero() {
   const [descripcion, setDescripcion] = useState("");
   const [imageUrl, setImageUrl] = useState(""); 
   const [isUploading, setIsUploading] = useState(false); 
+  const [canvasImage, setCanvasImage] = useState("");
 
   const handleFileUpload = async (event) => {
     if (!event.target.files[0]) {
@@ -38,7 +38,7 @@ function CreateTablero() {
     const nuevoTablero = {
       titulo,
       descripcion,
-      imagen: imageUrl, 
+      imagen: canvasImage || imageUrl
     };
 
     try {
@@ -64,7 +64,7 @@ function CreateTablero() {
         <h3 className="my-4">Crea tu Tablero</h3>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="d-flex flex-column justify-content-center align-items-center mb-5" controlId="formGridTitulo">
-            <Form.Label>Título</Form.Label>
+            <Form.Label>Título: </Form.Label>
             <Form.Control
               type="text"
               className="custom-form-control"
@@ -73,7 +73,7 @@ function CreateTablero() {
             />
           </Form.Group>
           <Form.Group className="d-flex flex-column justify-content-center align-items-center mb-5" controlId="formGridDescripcion">
-            <Form.Label>Descripción</Form.Label>
+            <Form.Label>Descripción: </Form.Label>
             <Form.Control
               as="textarea"
               rows={6}
@@ -83,8 +83,12 @@ function CreateTablero() {
               onChange={(e) => setDescripcion(e.target.value)}
             />
           </Form.Group>
+
+          <Form.Label>Dibujo en canvas: </Form.Label>
+          <Canvas />
+
           <Form.Group className="d-flex flex-column justify-content-center align-items-center mb-5" controlId="formGridImagen">
-            <Form.Label>Imagen</Form.Label>
+            <Form.Label>Imagen: </Form.Label>
             <Form.Control
               type="file"
               className="custom-form-control"
@@ -92,7 +96,7 @@ function CreateTablero() {
               disabled={isUploading}
             />
           </Form.Group>
-          <Canvas />
+          
           <Button variant="dark" type="submit" className="mb-5" disabled={isUploading || !imageUrl} >
             Crear
           </Button>

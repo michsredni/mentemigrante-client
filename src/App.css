@@ -150,6 +150,26 @@
   box-shadow: 0 0 0 0.2rem rgba(50, 52, 54, 0.25);
 }
 
+.sketch-canvas{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sketch-canvas-drawing{
+  display: flex;
+  flex-direction: column;
+}
+
+.sketch-canvas-tools{
+margin-left: 2%;
+}
+
+.sketch-canvas-tools-actions{
+  display: flex;
+  flex-direction: column;
+}
+
 /* User */
 .user-card .psico-card{
   display: flex;

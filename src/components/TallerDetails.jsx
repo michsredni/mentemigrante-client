@@ -61,13 +61,9 @@ function TallerDetails(props) {
     }
   }
 
-  console.log(idUsuarioLoggeado)
-  console.log(usuarios)
-
   const filteredUser = usuarios.find((eachUsuario) => {
     return eachUsuario._id == idUsuarioLoggeado
   })
-  console.log(filteredUser)
 
   return (
     <div>
