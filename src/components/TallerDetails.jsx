@@ -9,7 +9,7 @@ function TallerDetails(props) {
 
   
   const[oneTaller, setOneTaller] = useState(null)
-  const { idUsuarioLoggeado, isUsuario, isRegister } = useContext(AuthContext);
+  const { idUsuarioLoggeado, isUsuario } = useContext(AuthContext);
 
   useEffect(() => {
     getDataTaller()
@@ -63,10 +63,8 @@ function TallerDetails(props) {
     }
   }
 
-  // console.log(creador)
-  // console.log(idUsuarioLoggeado)
-  console.log(isUsuario)
-  console.log(isRegister)
+  console.log(creador)
+  console.log(idUsuarioLoggeado)
 
   return (
     <div>
@@ -82,7 +80,7 @@ function TallerDetails(props) {
       <p>{duracion}</p>
       {/* boton SOLO para usuarios (NO PSICOLOGOS) */}
       {isUsuario && <Link><button onClick={handleRegister}>Registrarse</button></Link>}
-      {isUsuario._id && <Link><button onClick={handleRemoveRegister}>Remover registro</button></Link>}
+      {isUsuario && <Link><button onClick={handleRemoveRegister}>Remover registro</button></Link>}
       {/* boton SOLO para creador de este taller */}
       {creador._id == idUsuarioLoggeado ? (<> <Link to={`/talleres/${_id}/editar`}><button>Editar</button></Link> <Link><button onClick={deleteTaller}>Borrar</button></Link> </>) : null}
     </div>
