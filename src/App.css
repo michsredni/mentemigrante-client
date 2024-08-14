@@ -151,7 +151,7 @@
 }
 
 /* User */
-.user-card {
+.user-card .psico-card{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -168,26 +168,58 @@
   margin-top: 18vh;
 }
 
-.user-details-card{
+.user-details-card{ 
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0;
   background-color: white;
   padding: 0;
-  align-items: center;
   border-color: white;
 }
 
-.user-details-card img {
+.user-details-card img{
   width: 50%;
   border-radius: .5rem;
 }
 
-/* PSICO LIST */
+/* Psicologo */
 
 .psicoList h1{
   padding-bottom: 4vh;
   margin-top: 18vh;
+}
+
+.psico-details{
+  margin-top: 18vh;
+}
+
+.psico-details-content{
+  display: flex;
+  flex-direction: row;
+}
+
+.psico-details-card { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-color: white;
+  text-align: left;
+  margin: 2%;
+  width: 40vw;
+  padding: 2% 0;
+}
+
+.psico-details-card img{
+  align-items: center;
+  width: 50%;
+  border-radius: .5rem;
+}
+
+.psico-details-talleres{
+  width: 60vw;
+  margin: 2%;
 }
 
 /* Sign Up Page */

@@ -8,9 +8,13 @@ function AuthWrapper(props) {
   const [estaLoggeado, setEstaLoggeado] = useState(false);
   const [idUsuarioLoggeado, setIdUsuarioLoggeado] = useState(null);
   const [estaConfirmandoInfo, setEstaConfirmandoInfo] = useState(true);
+
   // Estados de roles de usuarios
   const [isPsico, setIsPsico] = useState(false)
   const [isUsuario, setIsUsuario] = useState(false)
+
+  // Estado de registro en taller
+  const [isRegister, setIsRegister] = useState(false)
 
   const usuarioAutenticado = async () => {
     //funcion que llama a la ruta verify para verificar el TOKEN y actualizar los estados
@@ -49,12 +53,14 @@ function AuthWrapper(props) {
     }
   };
 
+  
+
   const passedContext = {
     estaLoggeado,
     idUsuarioLoggeado,
     usuarioAutenticado,
     isPsico,
-    isUsuario
+    isUsuario,
   };
 
   useEffect(() => {

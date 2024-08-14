@@ -73,9 +73,9 @@ function UserDetails() {
             </ListGroup>
           </Card.Body>
     </Card>
-      <Card border="dark" style={{ width: "100%" }}>
+      <Card border="dark" style={{ width: "80%" }}>
         <Card.Body>
-          <Card.Title>Tableros de {oneUser.nombreCompleto}</Card.Title>
+          <Card.Title>Tableros de {nombreCompleto}</Card.Title>
           {userTableros.map((eachTablero) => {
             return (
               <TableroCard key={eachTablero._id} eachTablero={eachTablero} />

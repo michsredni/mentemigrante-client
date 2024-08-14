@@ -7,16 +7,32 @@ function PsicoDetails() {
 
   const params = useParams()
   const [onePsico, setOnePsico] = useState(null)
+  const [psicoTalleres, setPsicoTalleres] = useState(null)
 
   useEffect(() => {
     getDataPsico()
   }, [])
+
+  useEffect(() => {
+    if (onePsico) {
+      getTalleresData();
+    }
+  }, [onePsico]);
 
   const getDataPsico = async () => {
     try {
       const response = await service.get(`/usuarios/${params.psicoId}/id`)
       console.log(response.data)
       setOnePsico(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  //TODO terminar esta ruta en server y luego pintarlo en FE
+  const getTalleresData = async () => {
+    try {
+      const responseTalleres = await service.get()
     } catch (error) {
       console.log(error)
     }
@@ -33,7 +49,8 @@ function PsicoDetails() {
   return (
     <div className='psico-details'>
       <h1>Información sobre {nombreCompleto}</h1>
-      <Card className="user-details-card" style={{ width: "60%" }}>
+      <div className='psico-details-content'>
+      <Card className="psico-details-card">
       <Card.Img variant="top" src={imagen} alt="foto" />
           <Card.Body>
             <ListGroup className="list-group-flush">
@@ -56,6 +73,13 @@ function PsicoDetails() {
             </ListGroup>
           </Card.Body>
     </Card>
+    <Card className="psico-details-talleres" >
+      <Card.Body>
+        <Card.Title>Talleres de {nombreCompleto}</Card.Title>
+        {}
+      </Card.Body>
+    </Card>
+      </div>
     </div>
   )
 }

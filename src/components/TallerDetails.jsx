@@ -9,7 +9,7 @@ function TallerDetails(props) {
 
   
   const[oneTaller, setOneTaller] = useState(null)
-  const { idUsuarioLoggeado, isUsuario } = useContext(AuthContext);
+  const { idUsuarioLoggeado, isUsuario, isRegister } = useContext(AuthContext);
 
   useEffect(() => {
     getDataTaller()
@@ -43,6 +43,17 @@ function TallerDetails(props) {
     }
   }
 
+  const handleRemoveRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await service.patch(`/talleres/${_id}/remover-asistencia`)
+      window.location.reload();
+      setOneTaller(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const deleteTaller = async () => {
     try {
       await service.delete(`/talleres/${_id}`)
@@ -52,8 +63,10 @@ function TallerDetails(props) {
     }
   }
 
-  console.log(creador)
-  console.log(idUsuarioLoggeado)
+  // console.log(creador)
+  // console.log(idUsuarioLoggeado)
+  console.log(isUsuario)
+  console.log(isRegister)
 
   return (
     <div>
@@ -69,6 +82,7 @@ function TallerDetails(props) {
       <p>{duracion}</p>
       {/* boton SOLO para usuarios (NO PSICOLOGOS) */}
       {isUsuario && <Link><button onClick={handleRegister}>Registrarse</button></Link>}
+      {isUsuario._id && <Link><button onClick={handleRemoveRegister}>Remover registro</button></Link>}
       {/* boton SOLO para creador de este taller */}
       {creador._id == idUsuarioLoggeado ? (<> <Link to={`/talleres/${_id}/editar`}><button>Editar</button></Link> <Link><button onClick={deleteTaller}>Borrar</button></Link> </>) : null}
     </div>
