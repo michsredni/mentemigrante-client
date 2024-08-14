@@ -30,13 +30,16 @@ function PsicoList() {
   }
 
   return (
-    <div>
-
-      {psicos.map((eachPsico) => {
+    <div className='psicoList'>
+      <h1>Psicólogos</h1>
+      <div>
+        {psicos.map((eachPsico) => {
         return(
           <PsicoCard key={eachPsico._id} eachPsico={eachPsico}/>
         )
       })}
+      </div>
+      
     </div>
   )
 }

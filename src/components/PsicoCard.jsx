@@ -1,17 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {Card, Button, ListGroup} from 'react-bootstrap';
 
 function PsicoCard(props) {
   const {imagen, nacionalidad, nombreCompleto, residencia, _id} = props.eachPsico
 
   return (
-    <div className='usuario-card'> 
-      <h2>{nombreCompleto}</h2> 
-      <h3>{nacionalidad}</h3> 
-      <h3>{residencia}</h3>
-      <img src={imagen} alt="foto" />
-      <Link to={`/usuarios/${_id}`}><button>Ver detalles</button></Link>
-      </div>
+    <Card border="dark" className="user-card" style={{ width: "60%" }}>
+      <Card.Img variant="top" src={imagen} alt="foto" />
+          <Card.Body>
+            <Card.Title>{nombreCompleto}</Card.Title>
+            <ListGroup className="list-group-flush">
+              <ListGroup.Item>
+                <b>Nacionalidad: </b>
+                {nacionalidad}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <b>Residencia: </b>
+                {residencia}
+              </ListGroup.Item>
+            </ListGroup>
+            <Link to={`/psicologos/${_id}`}><Button variant="dark">Ver detalles</Button></Link>
+          </Card.Body>
+    </Card>
   )
 }
 

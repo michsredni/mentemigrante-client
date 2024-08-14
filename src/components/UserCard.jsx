@@ -7,7 +7,7 @@ const{imagen, nacionalidad, nombreCompleto, residencia, _id } = props.eachUser
 
   return (
 
-    <Card border="dark" className="user-card" style={{ width: "100%" }}>
+    <Card border="dark" className="user-card" style={{ width: "60%" }}>
          <Card.Img variant="top" src={imagen} alt="foto" />
           <Card.Body>
             <Card.Title>{nombreCompleto}</Card.Title>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Spinner, Card } from 'react-bootstrap';
+import { Spinner, Card, ListGroup} from 'react-bootstrap';
 import service from '../service/service.config';
 import { useParams } from 'react-router-dom';
 import TableroCard from '../components/TableroCard';
@@ -52,15 +52,27 @@ function UserDetails() {
 
 
   return (
-
-    <div>
-      <h3>Detalles del Usuario</h3>
-      <img src={imagen} alt="foto-perfil" />
-      <p>{nombreCompleto}</p>
-      <p>{nacionalidad}</p>
-      <p>{residencia}</p>
-      <p>{tiempoNuevoPais}</p>
-      <br />
+    <div className='user-details'>
+      <h1>Información sobre {nombreCompleto}</h1>
+    <Card className="user-details-card" style={{ width: "60%" }}>
+      <Card.Img variant="top" src={imagen} alt="foto" />
+          <Card.Body>
+            <ListGroup className="list-group-flush">
+              <ListGroup.Item>
+                <b>Nacionalidad: </b>
+                {nacionalidad}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <b>Residencia: </b>
+                {residencia}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <b>Tiempo en el nuevo país: </b>
+                {tiempoNuevoPais}
+              </ListGroup.Item>
+            </ListGroup>
+          </Card.Body>
+    </Card>
       <Card border="dark" style={{ width: "100%" }}>
         <Card.Body>
           <Card.Title>Tableros de {oneUser.nombreCompleto}</Card.Title>
