@@ -43,7 +43,7 @@ function TallerList() {
       
       
       {talleres.map((eachTaller) => {
-        return <TallerDetails key={eachTaller._id} eachTaller={eachTaller} />;
+        return <TallerDetails key={eachTaller._id} setTalleres={setTalleres} eachTaller={eachTaller} getData={getData}/>;
       })}
     </div>
   );

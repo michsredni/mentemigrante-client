@@ -23,7 +23,7 @@ function UserDetails() {
   const getDataUsuario = async () => {
     try {
       const response = await service.get(`/usuarios/${params.usuarioId}/id`)
-        console.log(response.data)
+        // console.log(response.data)
         setOneUser(response.data)
       } catch (error) {
       console.log(error)
@@ -35,7 +35,7 @@ function UserDetails() {
       const responseTableros = await service.get(
         `/tableros/${oneUser._id}/por-usuario`
       );
-      console.log("Data Tableros: ",responseTableros.data);
+      // console.log("Data Tableros: ",responseTableros.data);
       setUserTableros(responseTableros.data);
     } catch (error) {
       console.log(error);

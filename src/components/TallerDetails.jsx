@@ -35,9 +35,8 @@ function TallerDetails(props) {
     e.preventDefault();
 
     try {
-      const response = await service.patch(`/talleres/${_id}/asistencia`)
-      window.location.reload();
-      setOneTaller(response.data)
+      await service.patch(`/talleres/${_id}/asistencia`)
+      props.getData()
     } catch (error) {
       console.log(error)
     }
@@ -46,9 +45,8 @@ function TallerDetails(props) {
   const handleRemoveRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await service.patch(`/talleres/${_id}/remover-asistencia`)
-      window.location.reload();
-      setOneTaller(response.data)
+      await service.patch(`/talleres/${_id}/remover-asistencia`)
+      props.getData()
     } catch (error) {
       console.log(error)
     }
@@ -57,19 +55,24 @@ function TallerDetails(props) {
   const deleteTaller = async () => {
     try {
       await service.delete(`/talleres/${_id}`)
-      window.location.reload();
+      props.getData()
     } catch (error) {
       console.log(error)
     }
   }
 
-  console.log(creador)
   console.log(idUsuarioLoggeado)
+  console.log(usuarios)
+
+  const filteredUser = usuarios.find((eachUsuario) => {
+    return eachUsuario._id == idUsuarioLoggeado
+  })
+  console.log(filteredUser)
 
   return (
     <div>
       <h2>Taller</h2>
-      <img src={imagen} alt="imagen-taller" />
+      <img src={imagen} alt="imagen-taller" style={{maxWidth: "40vw"}}/>
       <h5>{nombre}</h5>
       <p>Psicólogo: {creador.nombreCompleto}</p>
       <p>Asistencia: 
@@ -79,8 +82,7 @@ function TallerDetails(props) {
       <p>{descripcion}</p>
       <p>{duracion}</p>
       {/* boton SOLO para usuarios (NO PSICOLOGOS) */}
-      {isUsuario && <Link><button onClick={handleRegister}>Registrarse</button></Link>}
-      {isUsuario && <Link><button onClick={handleRemoveRegister}>Remover registro</button></Link>}
+      {filteredUser ? <Link><button onClick={handleRemoveRegister}>Remover registro</button></Link> : <Link><button onClick={handleRegister}>Registrarse</button></Link>}
       {/* boton SOLO para creador de este taller */}
       {creador._id == idUsuarioLoggeado ? (<> <Link to={`/talleres/${_id}/editar`}><button>Editar</button></Link> <Link><button onClick={deleteTaller}>Borrar</button></Link> </>) : null}
     </div>

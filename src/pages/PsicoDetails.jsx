@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import service from '../service/service.config'
 import { Spinner, Card, ListGroup} from 'react-bootstrap';
+import TallerDetails from '../components/TallerDetails';
 
 function PsicoDetails() {
 
   const params = useParams()
   const [onePsico, setOnePsico] = useState(null)
-  const [psicoTalleres, setPsicoTalleres] = useState(null)
+  const [psicoTalleres, setPsicoTalleres] = useState([])
 
   useEffect(() => {
     getDataPsico()
@@ -29,10 +30,12 @@ function PsicoDetails() {
     }
   }
 
-  //TODO terminar esta ruta en server y luego pintarlo en FE
   const getTalleresData = async () => {
     try {
-      const responseTalleres = await service.get()
+      const responseTalleres = await service.get(`/talleres/${params.psicoId}/id`)
+      console.log(responseTalleres.data)
+      setPsicoTalleres(responseTalleres.data)
+      console.log(psicoTalleres)
     } catch (error) {
       console.log(error)
     }
@@ -73,10 +76,16 @@ function PsicoDetails() {
             </ListGroup>
           </Card.Body>
     </Card>
+    {/* TO DO por si no aparecen talleres*/}
+    {/* {project.tasks.length === 0 ? <h4>No se han creado talleres</h4> : null} */}
     <Card className="psico-details-talleres" >
       <Card.Body>
         <Card.Title>Talleres de {nombreCompleto}</Card.Title>
-        {}
+        {psicoTalleres.map((eachTaller) => {
+          return(
+            <TallerDetails key={eachTaller._id} eachTaller={eachTaller} />
+          )
+        })}
       </Card.Body>
     </Card>
       </div>

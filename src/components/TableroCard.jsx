@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import service from "../service/service.config";
+import { AuthContext } from "../context/auth.context";
 
 function TableroCard(props) {
   const navigate = useNavigate()
-  const { titulo, descripcion, imagen, _id } = props.eachTablero;
+  const { titulo, descripcion, imagen, _id, creador} = props.eachTablero;
+  const { idUsuarioLoggeado } = useContext(AuthContext);
 
   const deleteTablero = async () => {
     console.log("tratando de borrar")
@@ -29,10 +31,12 @@ function TableroCard(props) {
               <Card.Text>{descripcion}</Card.Text>
             </Card.Body>
 
-            <Card.Body>
+            {/* solo aparezca los botones si soy el creador del tablero*/}
+            {creador == idUsuarioLoggeado ? (<Card.Body>
               <Card.Link as={Link} to={`/tablero-creativo/${_id}/editar`}><Button variant="dark" type="submit" className="mb-5" >Editar</Button></Card.Link>
               <Card.Link href="#"><Button variant="dark" type="submit" className="mb-5" onClick={deleteTablero}>Eliminar</Button></Card.Link>
-            </Card.Body>
+            </Card.Body>) : null}
+            
           </div>
         </div>
       </Card>

@@ -13,9 +13,6 @@ function AuthWrapper(props) {
   const [isPsico, setIsPsico] = useState(false)
   const [isUsuario, setIsUsuario] = useState(false)
 
-  // Estado de registro en taller
-  const [isRegister, setIsRegister] = useState(false)
-
   const usuarioAutenticado = async () => {
     //funcion que llama a la ruta verify para verificar el TOKEN y actualizar los estados
 
