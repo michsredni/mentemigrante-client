@@ -110,6 +110,21 @@
   color: #173B45;
 }
 
+/* Carousel */
+
+.carousel-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 15vh;
+}
+
+.carousel-div .carousel-item{
+  width: 50vw;
+  height: 50vh;
+}
+
 /* Profile */
 
 .user-profile {
@@ -210,6 +225,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  
 }
 
 .custom-form-control {
@@ -222,11 +238,25 @@
   box-shadow: 0 0 0 0.2rem rgba(50, 52, 54, 0.25);
 }
 
+.tablero-card-titulo{
+  margin-top: 5%;
+  color: #173B45;
+}
+
+
 .sketch-canvas{
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+
+.sketch-canvas svg { 
+  background-color: white;
+}
+
+.sketch-canvas-tools-actions button{
+  background-color: transparent;
+} 
 
 .sketch-canvas-drawing{
   display: flex;
@@ -333,7 +363,7 @@ margin-left: 2%;
 
 .signup-card {
   color: #F8EDED;
-  background: rgba(23, 59, 69, 0.9);
+  background: rgba(23, 59, 69, 0.8);
   border-radius: 20px;
   padding: 5% 10%;
   
