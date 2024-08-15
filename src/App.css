@@ -6,8 +6,7 @@
 }
 
 .navbar {
-  background-color: #173B45 !important; 
-  position: fixed; 
+  background-color: #173B45 !important;
   top: 0;
   left: 0;
   right: 0;
@@ -15,18 +14,16 @@
   padding: 20px 20px;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-content {
-  background-color: #173B45;
-  padding: 0 1rem;
+  
 }
 
 .navbar-nav {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   color: white;
+  text-align: left;
+  font-weight: 500;
 }
 
 .navbar img {
@@ -46,16 +43,8 @@
   margin-right: 10%;
 }
 
-.cerrarSesionButton {
-  background: none;
-  border: none;
-  color: #F8EDED;
-}
-
-.cerrarSesionButton:hover {
-  background: #F8EDED;
-  border: none;
-  color: #173B45;
+.dropdown-menu{
+  background-color: #254e5a;
 }
 
 /* Home Page */
@@ -356,5 +345,9 @@ margin-left: 2%;
   margin-bottom: 0.5rem;
 }
 
-
+/* Talleres */
+.taller-details-card{
+  gap: 5%;
+  margin: 2% 20%;
+}
 

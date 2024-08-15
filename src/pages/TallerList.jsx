@@ -33,7 +33,7 @@ function TallerList() {
 
   return (
     <div>
-      <h2>Talleres</h2>
+      <h1 style={{ marginBottom: "10%", color: "#173B45", marginTop: '20%'}}>Talleres</h1>
       <br />
       {isPsico &&
         <Link to={"/talleres/crear"}>

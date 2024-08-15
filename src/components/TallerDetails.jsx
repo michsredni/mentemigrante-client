@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import service from '../service/service.config';
-import { Spinner } from 'react-bootstrap';
 import { AuthContext } from '../context/auth.context';
+import { Spinner, Card, ListGroup} from 'react-bootstrap';
 
 function TallerDetails(props) {
   const {creador, descripcion, duracion, imagen, nombre, usuarios, _id} = props.eachTaller
@@ -67,20 +67,24 @@ function TallerDetails(props) {
 
   return (
     <div>
-      <h2>Taller</h2>
-      <img src={imagen} alt="imagen-taller" style={{maxWidth: "40vw"}}/>
-      <h5>{nombre}</h5>
-      <p>Psicólogo: {creador.nombreCompleto}</p>
-      <p>Asistencia: 
+      <Card className="taller-details-card" style={{ width: "60%" }}>
+      <Card.Img variant="top" src={imagen} alt="imagen-taller" style={{maxWidth: "40vw"}}/>
+      <Card.Body>
+        <ListGroup className="list-group-flush">
+          <ListGroup.Item><h5><b>Nombre de taller:</b>{nombre}</h5></ListGroup.Item>
+          <ListGroup.Item><p><b>Psicólogo: </b>{creador.nombreCompleto}</p></ListGroup.Item>
+          <ListGroup.Item><p><b>Miembros: </b> 
         {usuarios.map((eachUsuario)=> {
-        return <li key={eachUsuario._id}>{(eachUsuario.nombreCompleto)} </li>
-      })}</p>
-      <p>{descripcion}</p>
-      <p>{duracion}</p>
+        return <li key={eachUsuario._id}>{(eachUsuario.nombreCompleto)} </li>})}</p></ListGroup.Item>
+        <ListGroup.Item><p><b>Descripción: </b>{descripcion}</p></ListGroup.Item>
+        <ListGroup.Item><b>Duración: </b><p>{duracion}</p></ListGroup.Item>
+        </ListGroup>
+      </Card.Body>
       {/* boton SOLO para usuarios (NO PSICOLOGOS) */}
       {filteredUser ? <Link><button onClick={handleRemoveRegister}>Remover registro</button></Link> : <Link><button onClick={handleRegister}>Registrarse</button></Link>}
       {/* boton SOLO para creador de este taller */}
       {creador._id == idUsuarioLoggeado ? (<> <Link to={`/talleres/${_id}/editar`}><button>Editar</button></Link> <Link><button onClick={deleteTaller}>Borrar</button></Link> </>) : null}
+      </Card>
     </div>
   )
 }

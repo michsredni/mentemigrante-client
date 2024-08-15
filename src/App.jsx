@@ -32,12 +32,7 @@ function App() {
 
   return ( 
     <div>
-      <div className='navbar'>
-        <div className="navbar-content">
-          <Navbar />
-        </div>
-      </div>
-
+      <Navbar />
       <Routes>
         <Route path ="/" element={<HomePage/>}/>
         <Route path ="/registro" element={<SignupPage/>}/>
