@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import service from '../service/service.config'
 import { Spinner, Card, ListGroup} from 'react-bootstrap';
-import TallerDetails from '../components/TallerDetails';
 
 function PsicoDetails() {
 
@@ -74,6 +73,7 @@ function PsicoDetails() {
           </Card.Body>
     </Card>
     {/* TO DO por si no aparecen talleres*/}
+    {}
     {/* {project.tasks.length === 0 ? <h4>No se han creado talleres</h4> : null} */}
     <div className="psico-details-talleres">
       <h3>Talleres de {nombreCompleto}</h3>

@@ -65,8 +65,7 @@ function SignupPage() {
 
   return (
     <div className="fondo-signup d-flex justify-content-center align-items-center">
-      <Container>
-        <Row className="justify-content-center">
+      <Container className="signup-container">
           <Col xs={12} md={8} lg={6}>
             <Card className="signup-card">
               <h2>Registro</h2>
@@ -122,11 +121,10 @@ function SignupPage() {
                 </Form.Group>
 
                 <h6 style={{ marginBottom: "1vw", fontWeight: "normal" }}>
-                  Tiempo en nuevo país
+                  Tiempo en nuevo país:
                 </h6>
                 <Form.Group
                   className="d-flex flex-row justify-content-center align-items-center mb-5"
-                  controlId="tiempoNuevoPais"
                 >
                   <Form.Label style={{ marginRight: "1vw" }}>Meses: </Form.Label>
                   <Form.Control
@@ -173,7 +171,7 @@ function SignupPage() {
               </Card.Text>
             </Card>
           </Col>
-        </Row>
+        {/* </Row> */}
       </Container>
     </div>
   );

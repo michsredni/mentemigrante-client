@@ -1,20 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+::selection{
+  background: #8e44ad;
+  color: #fff;
+}
+
 #root {
   margin: 0; 
   text-align: center;
   background-color: #F8EDED;
   color: black;
-}
-
-.navbar {
-  background-color: #173B45 !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1030;
-  padding: 20px 20px;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
 }
 
 .navbar-nav {
@@ -69,7 +69,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: #F8EDED;
+  color: #ffffff;
 }
 
 .hero-text h1 {
@@ -113,7 +113,6 @@
 /* Profile */
 
 .user-profile {
-  margin-top: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -213,12 +212,12 @@
 }
 
 .custom-form-control {
-  border-color: black;
+  border-color: #F8EDED;
   width: 50%;
 }
 
 .custom-form-control:focus {
-  border-color: black;
+  border-color: #dadada; 
   box-shadow: 0 0 0 0.2rem rgba(50, 52, 54, 0.25);
 }
 
@@ -243,7 +242,7 @@ margin-left: 2%;
 }
 
 /* User */
-.user-card .psico-card{
+.user-card{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -263,9 +262,44 @@ margin-left: 2%;
 
 /* Psicologo */
 
-.psicoList h1{
-  padding-bottom: 4vh;
-  margin-top: 18vh;
+.psicoList-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 12px;
+}
+
+.psico-card-box{
+  max-width: 300px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 12px;
+}
+.psicoList-container :focus{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24)
+}
+
+.psico-card-box img {
+  height: 100%;
+  width: calc(50% - 10px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff; 
+}
+
+.psico-card-btns{
+  margin-top: 20px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #173B45;
 }
 
 .psico-details{
@@ -315,6 +349,11 @@ margin-left: 2%;
   align-items: center;
 }
 
+.signup-container{
+  display: flex;
+  flex-direction: column;
+}
+
 .form-signup {
   width: 80%;
   max-width: 400px;
@@ -327,7 +366,7 @@ margin-left: 2%;
 }
 
 .signup-form-control:focus {
-  border-color: #FF8225; 
+  border-color: #dadada; 
   box-shadow: 0 0 0 0.2rem rgba(50, 52, 54, 0.25);
 }
 
@@ -336,7 +375,9 @@ margin-left: 2%;
   background: rgba(23, 59, 69, 0.9);
   border-radius: 20px;
   padding: 5% 10%;
-  
+  align-items: stretch;
+  text-align: left;
+  max-width: 300px;
 }
 
 .signup-card .card-text {
