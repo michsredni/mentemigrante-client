@@ -73,11 +73,13 @@
 }
 
 .hero-text h1 {
+  font-weight: 400;
   margin-top: 4vh;
   margin-bottom: 3vh;
 }
 
 .hero-text h4 {
+  font-weight: lighter;
   margin-bottom: 5vh;
   padding: 0 4vw;
 }
@@ -109,19 +111,99 @@
 }
 
 /* Profile */
+
+.user-profile {
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-card{
+  background-color: #173B45;
+}
+
+.profile-card .card-title {
+  color: #F8EDED;
+  font-size: xx-large;
+  font-weight: lighter;
+}
+
+.profile-card .list-group-item{
+  background-color: #173B45;
+  border: none;
+  color: #F8EDED;
+  font-weight: lighter;
+}
+
+.profile-card .btn {
+  background-color: #173B45;
+  border-color: #FF8225;
+  color: #F8EDED;
+}
+
+.profile-card .btn:hover {
+  background-color: #FF8225;
+  border-color: #173B45;
+  color: #173B45;
+}
+
 .profileDiv {
   display: flex;
-  flex-direction: row;
+  padding: 2vh;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
 
 .profileDiv img {
   width: 40%;
-  margin-left: 3px;
 }
 
 /* Tablero */
+
+.tablero-card {
+  background: #F8EDED;
+  background-color: #F8EDED;
+  border-radius: 4px;
+  border-color: #173B45;
+}
+
+.tablero-card .card {
+  
+  background-color: #F8EDED;
+  border-radius: 4px;
+  border-color: transparent;
+}
+
+.tableros-titulo {
+  color: #173B45;
+  font-size: xx-large;
+  font-weight: lighter;
+}
+
+.tablero-card .card-body .card-title{
+  font-weight: 400;
+  background-color: #F8EDED;
+  color: #173B45;
+}
+
+.tablero-card .card-body .card-text{
+  font-weight: lighter;
+  background-color: #F8EDED;
+  color: #173B45;
+}
+
+.tablero-card .btn {
+  background-color: #173B45;
+  color: #F8EDED;
+}
+
+.tablero-card .btn:hover {
+  background-color: #F8EDED;
+  color: #173B45;
+}
+
 .tablero-form-card {
   display: flex;
   flex-direction: column;
@@ -174,23 +256,9 @@ margin-left: 2%;
   width: 25vw;
 }
 
-.user-details{
-  margin-top: 18vh;
-}
-
-.user-details-card{ 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  background-color: white;
-  padding: 0;
-  border-color: white;
-}
-
-.user-details-card img{
-  width: 50%;
-  border-radius: .5rem;
+.user-info-title{
+  color: #173B45;
+  font-weight: 400;
 }
 
 /* Psicologo */
