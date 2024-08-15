@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button, Card, Container } from "react-bootstrap";
 import service from '../service/service.config';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
@@ -14,6 +14,8 @@ function EditProfileFormPage() {
     const [residencia, setResidencia] = useState("")
     const [tiempoNuevoPais, setTiempoNuevoPais] = useState("")
     const [especializacion, setEspecializacion] = useState("")
+    const [mesesNuevoPais, setMesesNuevoPais] = useState("");
+    const [anosNuevoPais, setAnosNuevoPais] = useState("");
 
     const navigate = useNavigate()
 
@@ -66,6 +68,18 @@ function EditProfileFormPage() {
             especializacion
         }
 
+        if (mesesNuevoPais && anosNuevoPais) {
+          nuevoUsuario.tiempoNuevoPais = `${anosNuevoPais} años y ${mesesNuevoPais} meses`;
+        }
+    
+        if (!mesesNuevoPais && anosNuevoPais) {
+          nuevoUsuario.tiempoNuevoPais = `${anosNuevoPais} años`;
+        }
+    
+        if (mesesNuevoPais && !anosNuevoPais) {
+          nuevoUsuario.tiempoNuevoPais = `${mesesNuevoPais} meses`;
+        }
+
         try {
             await service.put("/usuarios/propio", perfilEditado)
             navigate("/perfil")
@@ -76,7 +90,8 @@ function EditProfileFormPage() {
 
   return (
     <div>
-        <Card border="dark" style={{ width: "100%" }}>
+      <Container>
+        <Card style={{ width: "100%" }}>
         <h3 className="my-4">Mi perfil</h3>
         <Form onSubmit={handleEditSubmit}>
 
@@ -112,16 +127,24 @@ function EditProfileFormPage() {
               onChange={(e) => setResidencia(e.target.value)}
             /></Form.Group>
 
+            <h6 style={{ marginBottom: "1vw", fontWeight: "normal" }}>Tiempo en nuevo país:</h6>
             <Form.Group
-            className="d-flex flex-column justify-content-center align-items-center mb-5"
-            controlId="formGridNombre" >
-            <Form.Label>Tiempo en el nuevo pais: </Form.Label>
+            className="d-flex flex-row justify-content-center align-items-center mb-5"
+            controlId="tiempoNuevoPais">
+            <Form.Label style={{ marginRight: "1vw" }}>Meses: </Form.Label>
             <Form.Control
               type="number"
               className="custom-form-control"
-              value={tiempoNuevoPais}
-              onChange={(e) => setTiempoNuevoPais(e.target.value)}
-            /></Form.Group>
+              value={mesesNuevoPais}
+              onChange={(e) => setMesesNuevoPais(e.target.value)}/>
+
+            <Form.Label style={{ marginRight: "1vw", marginLeft: "1vw" }}>Años:{" "}</Form.Label>
+              <Form.Control
+              type="number"
+              className="custom-form-control"
+              value={anosNuevoPais}
+              onChange={(e) => setAnosNuevoPais(e.target.value)}/>
+            </Form.Group>
 
             {isPsico && <Form.Group
             className="d-flex flex-column justify-content-center align-items-center mb-5"
@@ -141,6 +164,8 @@ function EditProfileFormPage() {
         </Form>
       </Card>
 
+      </Container>
+        
     </div>
   )
 }
