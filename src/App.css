@@ -98,6 +98,32 @@
   margin: 2% 20%;
 }
 
+.card-home {
+  background-color: #173b45;
+  color: #f8eded;
+  padding: 5% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  min-height: 400px; /* Esto asegura que ambas tarjetas tengan la misma altura mínima */
+  flex: 1;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.card-image {
+  width: 10vw;
+  max-width: 500px;
+  height: auto;
+  padding: 2vh;
+}
+
 .botonRegistro {
   background: #173B45;
   border: none;
@@ -109,6 +135,7 @@
   border: none;
   color: #173B45;
 }
+
 
 /* Carousel */
 
@@ -178,15 +205,20 @@
 .tablero-box{
   display: flex;
   justify-content: center;
+  align-content: center;
 }
 .crear-tablero-card{
-  color: #000000;
+  color:#173B45;
   border-radius: 20px;
   padding: 5% 10%;
   align-items: stretch;
   text-align: left;
 }
 
+.crear-tablero-card h3{
+display: flex;
+justify-content: center;
+}
 .tablero-card {
   background: #F8EDED;
   background-color: #F8EDED;
@@ -231,7 +263,7 @@
 .tablero-form-card {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+ justify-content: center; 
   align-items: center;
   height: 100%;
   
@@ -259,13 +291,6 @@
   justify-content: center;
 }
 
-.sketch-canvas svg { 
-  background-color: white;
-}
-
-.sketch-canvas-tools-actions button{
-  background-color: transparent;
-} 
 
 .sketch-canvas-drawing{
   display: flex;
@@ -497,5 +522,25 @@ margin-left: 2%;
 .taller-details-card{
   gap: 5%;
   margin: 2% 20%;
+}
+
+/* Footer */
+.footer{
+  padding: 3vh;
+  background-color:#254e5a;
+  color:#F8EDED
+}
+
+.footer img {
+  filter: invert(100%);
+  margin-bottom: 1vh;
+}
+
+.madeBy a {
+  margin-left: 0.5vw;
+  font-size: x-large;
+  color: #F8EDED;
+  font-weight: 200;
+
 }
 

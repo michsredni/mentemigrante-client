@@ -25,6 +25,7 @@ import Private from './components/auth/Private';
 import Psicologo from './components/auth/Psicologo';
 import User from './components/auth/User'
 import EditProfileFormPage from './pages/EditProfileFormPage';
+import Footer from './components/Footer';
 
 
 
@@ -53,7 +54,7 @@ function App() {
         <Route path ="*" element={<NotFoundPage/>}/>
         <Route path ="/error/500" element={<ErrorPage/>}/>
       </Routes>
-      
+      <Footer/>
     </div>
   )
 }

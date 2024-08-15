@@ -52,7 +52,8 @@ function CreateTablero() {
   return (
     <div>
       <div className="tablero-card-titulo">
-        <h1>Tablero de expresión creativa</h1>
+        <h1>Tablero creativo</h1>
+        <h3>Herramienta de externalización gratuita</h3>
       </div>
       <br />
       <div className="tablero-box">

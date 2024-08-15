@@ -3,8 +3,8 @@ import React, { useContext } from "react";
 import { Button, Card, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../assets/MentEmigrante-logo.png";
-import cardImageOne from "../assets/vector_1.png";
-import cardImageTwo  from "../assets/vector_2.png"
+import cardImageOne from "../assets/vector2.png";
+import cardImageTwo from "../assets/vector3.png";
 import { AuthContext } from "../context/auth.context";
 import imageCaruseltaller1 from "../assets/taller1.jpg";
 import imageCaruseltaller2 from "../assets/taller2.jpg";
@@ -12,7 +12,7 @@ import imageCaruseltaller3 from "../assets/taller4.png";
 import imageCarusel1 from "../assets/tablero1.jpeg";
 import imageCarusel2 from "../assets/tablero2.jpeg";
 import imageCarusel3 from "../assets/tablero3.jpg";
-
+import Footer from "../components/Footer";
 
 function HomePage() {
   const { estaLoggeado } = useContext(AuthContext);
@@ -42,35 +42,25 @@ function HomePage() {
         <h3>Cómo funciona Mentemigrante</h3>
         <br />
         <div className="cards-home-content">
-          <Card
-            style={{
-              backgroundColor: "#173B45",
-              color: "#F8EDED",
-              padding: "5% 0",
-            }}
-          >
+          <Card className="card-home">
             <Card.Body>
-              <Card.Title>
-                {" "}
-                <b>Entre migras nos sostenemos</b>
-              </Card.Title>
-              <Card.Img src={cardImageOne} style={{ width: "50%" }}></Card.Img>
+              <Card.Title>Entre migras nos sostenemos</Card.Title>
+              <div className="image-container">
+                <Card.Img src={cardImageOne} className="card-image" />
+              </div>
               <Card.Text>
                 Aquí encontrarás un espacio seguro para expresar tu malestar y
                 recibir apoyo desde una perspectiva decolonial y antirracista.
               </Card.Text>
             </Card.Body>
           </Card>
-          <Card
-            style={{
-              backgroundColor: "#173B45",
-              color: "#F8EDED",
-              padding: "5% 0",
-            }}
-          >
+
+          <Card className="card-home">
             <Card.Body>
               <Card.Title>¿Qué ofrecemos?</Card.Title>
-              <Card.Img src={cardImageTwo} style={{ width: "25%"}}></Card.Img>
+              <div className="image-container">
+                <Card.Img src={cardImageTwo} className="card-image" />
+              </div>
               <Card.Text>
                 Te ayudamos a cuestionar y desafiar las estructuras de poder que
                 afectan tu vida, para que puedas cuidar tu salud mental mientras
