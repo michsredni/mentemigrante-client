@@ -23,7 +23,6 @@ function PsicoDetails() {
   const getDataPsico = async () => {
     try {
       const response = await service.get(`/usuarios/${params.psicoId}/id`)
-      console.log(response.data)
       setOnePsico(response.data)
     } catch (error) {
       console.log(error)
@@ -33,9 +32,7 @@ function PsicoDetails() {
   const getTalleresData = async () => {
     try {
       const responseTalleres = await service.get(`/talleres/${params.psicoId}/id`)
-      console.log(responseTalleres.data)
       setPsicoTalleres(responseTalleres.data)
-      console.log(psicoTalleres)
     } catch (error) {
       console.log(error)
     }
@@ -47,7 +44,7 @@ function PsicoDetails() {
     </Spinner>)
   }
 
-  const {imagen, nombreCompleto, nacionalidad, residencia, tiempoNuevoPais, _id, especializacion} = onePsico
+  const {imagen, nombreCompleto, nacionalidad, residencia, tiempoNuevoPais, especializacion} = onePsico
 
   return (
     <div className='psico-details'>
@@ -78,17 +75,23 @@ function PsicoDetails() {
     </Card>
     {/* TO DO por si no aparecen talleres*/}
     {/* {project.tasks.length === 0 ? <h4>No se han creado talleres</h4> : null} */}
-    <Card className="psico-details-talleres" >
-      <Card.Body>
-        <Card.Title>Talleres de {nombreCompleto}</Card.Title>
-        {psicoTalleres.map((eachTaller) => {
+    <div className="psico-details-talleres">
+      <h3>Talleres de {nombreCompleto}</h3>
+      {psicoTalleres.map((eachTaller) => {
           return(
-            <TallerDetails key={eachTaller._id} eachTaller={eachTaller} />
-          )
-        })}
-      </Card.Body>
-    </Card>
-      </div>
+            <div>
+              <Card className="taller-details-card" style={{ width: "60%" }}>
+              <Card.Img variant="top" src={imagen} alt="imagen-taller" style={{maxWidth: "40vw"}}/>
+              <Card.Body>
+                <ListGroup className="list-group-flush">
+                <h5 key={eachTaller._id}><b>Nombre de taller:</b>{eachTaller.nombre}</h5>
+                <p><b>Descripción: </b>{eachTaller.descripcion}</p>
+                </ListGroup>
+              </Card.Body>
+              </Card>
+            </div>)})}
+    </div>
+    </div>
     </div>
   )
 }
