@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 
 import { Button, Card, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../assets/MentEmigrante-logo.png";
 import cardImageOne from "../assets/vector_1.png";
 import cardImageTwo  from "../assets/vector_2.png"
 import { AuthContext } from "../context/auth.context";
@@ -20,10 +19,9 @@ function HomePage() {
   return (
     <div>
       <div className="hero-section">
-        {/* <img src={fondo} width="100%" alt="migration-image" /> */}
         <div className="hero-text">
-          <img className="logo" src={logo} alt="logo" width={"500px"} />
           <h1>Tu espacio seguro en cualquier lugar</h1>
+          <br />
           <h4>
             App de salud mental para personas migras de Latinoamérica que buscan
             recibir un apoyo. Hay talleres todos los días: regístrate para
@@ -31,7 +29,7 @@ function HomePage() {
           </h4>
           {!estaLoggeado && (
             <Link to={"/registro"}>
-              <Button className="botonRegistro mb-5" type="submit">
+              <Button className="botonRegistro mb-5" type="submit" size="lg">
                 Unirse a Mentemigrante
               </Button>
             </Link>
@@ -39,12 +37,12 @@ function HomePage() {
         </div>
       </div>
       <div className="cards-home">
-        <h3>Cómo funciona Mentemigrante</h3>
+        <h2>Cómo funciona Mentemigrante</h2>
         <br />
         <div className="cards-home-content">
           <Card
             style={{
-              backgroundColor: "#173B45",
+              backgroundColor: "#901c1c",
               color: "#F8EDED",
               padding: "5% 0",
             }}
@@ -63,7 +61,7 @@ function HomePage() {
           </Card>
           <Card
             style={{
-              backgroundColor: "#173B45",
+              backgroundColor: "#901c1c",
               color: "#F8EDED",
               padding: "5% 0",
             }}

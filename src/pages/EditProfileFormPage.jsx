@@ -26,11 +26,13 @@ function EditProfileFormPage() {
     const getData = async () => {
         try {
           const response = await service.get("/usuarios/propio");
-          // console.log(response.data);
+          console.log(response.data);
           setImageUrl(response.data.imageUrl)
           setNacionalidad(response.data.nacionalidad)
           setResidencia(response.data.residencia)
           setTiempoNuevoPais(response.data.tiempoNuevoPais)
+          setAnosNuevoPais(response.data.anosNuevoPais)
+          setMesesNuevoPais(response.data.mesesNuevoPais)
           setEspecializacion(response.data.especializacion)
         } catch (error) {
           console.log(error);
@@ -64,7 +66,6 @@ function EditProfileFormPage() {
             imagen: imageUrl,
             nacionalidad,
             residencia,
-            tiempoNuevoPais,
             especializacion
         }
 
@@ -93,9 +94,9 @@ function EditProfileFormPage() {
       <Container>
         <Card style={{ width: "100%" }}>
         <h3 className="my-4">Mi perfil</h3>
-        <Form onSubmit={handleEditSubmit}>
+        <Form className='form-edit-profile' onSubmit={handleEditSubmit}>
 
-            <Form.Group className="d-flex flex-column justify-content-center align-items-center mb-5" controlId="formGridImagen">
+            <Form.Group className="d-flex flex-column justify-content-center align-items-center texta-align-left mb-5" controlId="formGridImagen">
             <Form.Label>Imagen: </Form.Label>
             <Form.Control
               type="file"
@@ -122,33 +123,34 @@ function EditProfileFormPage() {
             <Form.Label>Residencia: </Form.Label>
             <Form.Control
               type="text"
+              controlId="formGridResidencia"
               className="custom-form-control"
               value={residencia}
               onChange={(e) => setResidencia(e.target.value)}
             /></Form.Group>
 
-            <h6 style={{ marginBottom: "1vw", fontWeight: "normal" }}>Tiempo en nuevo país:</h6>
-            <Form.Group
-            className="d-flex flex-row justify-content-center align-items-center mb-5"
-            controlId="tiempoNuevoPais">
-            <Form.Label style={{ marginRight: "1vw" }}>Meses: </Form.Label>
-            <Form.Control
-              type="number"
-              className="custom-form-control"
-              value={mesesNuevoPais}
-              onChange={(e) => setMesesNuevoPais(e.target.value)}/>
-
-            <Form.Label style={{ marginRight: "1vw", marginLeft: "1vw" }}>Años:{" "}</Form.Label>
+            <h6 style={{ marginBottom: "1vw", fontWeight: "normal" }}>
+                  Tiempo en nuevo país:
+            </h6>
+             <Form.Group className="custom-form-control">
+             <Form.Label style={{ marginRight: "1vw" }}>Meses: </Form.Label>
               <Form.Control
-              type="number"
-              className="custom-form-control"
-              value={anosNuevoPais}
-              onChange={(e) => setAnosNuevoPais(e.target.value)}/>
-            </Form.Group>
+                  type="number"
+                  controlId="formGridMeses"
+                  className="d-flex flex-column justify-content-left align-items-left mb-5"
+                  value={mesesNuevoPais}
+                  onChange={(e) => setMesesNuevoPais(e.target.value)}/>
+              <Form.Label style={{marginRight: "1vw", marginLeft: "1vw"}}>Años:{" "}</Form.Label>
+              <Form.Control
+                  type="number"
+                   className="d-flex flex-column justify-content-center align-items-center mb-5"
+                   value={anosNuevoPais}
+                  onChange={(e) => setAnosNuevoPais(e.target.value)}/>
+              </Form.Group>
 
             {isPsico && <Form.Group
-            className="d-flex flex-column justify-content-center align-items-center mb-5"
-            controlId="formGridNombre" >
+            className="custom-form-control"
+            controlId="formGridEspecializacion" >
             <Form.Label>Especializacion: </Form.Label>
             <Form.Control
               type="text"

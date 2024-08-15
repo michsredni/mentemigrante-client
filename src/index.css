@@ -28,8 +28,8 @@ body {
   flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #F8EDED;
-  padding-top: 24vh; /* Adjust based on navbar height */
+  background-color: #f1f8ed;
+  /* padding-top: 24vh; Adjust based on navbar height */
 }
 
 h1 {
@@ -44,16 +44,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #B43F3F;
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto;
 }
 
 @media (prefers-color-scheme: light) {
@@ -71,7 +68,7 @@ button:focus-visible {
 
 /* Navbar */
 .navbar {
-  background-color: #173B45 !important;
+  /* background-color: #173B45 !important; */
   position: fixed;
   top: 0;
   left: 0;
@@ -79,7 +76,11 @@ button:focus-visible {
   z-index: 1030;
   padding: 20px 20px;
   width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 56, 76, 0.1);
+  /* box-shadow: 0 2px 4px rgba(0, 56, 76, 0.1); */
+}
+
+.navbar :hover{
+  color: rgb(255, 255, 255);
 }
 
 /* Adjust content margin to avoid being hidden behind the navbar */

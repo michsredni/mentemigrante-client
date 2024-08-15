@@ -65,8 +65,9 @@ function SignupPage() {
 
   return (
     <div className="fondo-signup d-flex justify-content-center align-items-center">
-      <Container className="signup-container">
-          <Col xs={12} md={8} lg={6}>
+      <Container>
+        <Row className="justify-content-center">
+          <Col xs={12} md={8} lg={8}>
             <Card className="signup-card">
               <h2>Registro</h2>
               <Form onSubmit={handleSignup}>
@@ -158,6 +159,18 @@ function SignupPage() {
                   </Form.Select>
                 </Form.Group>
 
+                {rol === "psicologo" ? <Form.Group className="mb-3" controlId="especializacion">
+                  <Form.Label>Especialización:</Form.Label>
+                  <Form.Control
+                    type="text"
+                    className="signup-form-control"
+                    value={especializacion}
+                    onChange={(e) => setEspecializacion(e.target.value)}
+                  />
+                </Form.Group> : null}
+
+                
+
                 <Button type="submit" className="w-100">
                   Registrarse
                 </Button>
@@ -171,7 +184,7 @@ function SignupPage() {
               </Card.Text>
             </Card>
           </Col>
-        {/* </Row> */}
+        </Row>
       </Container>
     </div>
   );

@@ -24,7 +24,7 @@ function UserProfile() {
   const getData = async () => {
     try {
       const response = await service.get("/usuarios/propio");
-      // console.log(response.data);
+      console.log(response.data);
       setOwnProfile(response.data);
     } catch (error) {
       console.log(error);
@@ -36,7 +36,7 @@ function UserProfile() {
       const responseTableros = await service.get(
         `/tableros/${ownProfile._id}/por-usuario`
       );
-      // console.log("Data Tableros: ",responseTableros.data);
+      console.log("Data Tableros: ",responseTableros.data);
       setOwnTableros(responseTableros.data);
     } catch (error) {
       console.log(error);
@@ -91,6 +91,10 @@ function UserProfile() {
                 <b>Fecha de alta: </b>
                 {formatDate(ownProfile.createdAt)}
               </ListGroup.Item>
+              {!isUsuario && <ListGroup.Item>
+                <b>Especialización: </b>
+                {ownProfile.especializacion}
+              </ListGroup.Item>}
             </ListGroup>
           <Link to={`/perfil/editar`}><Button variant="dark" type="submit" className="mt-2 mb-5">Editar mi perfil</Button></Link>
           </div>

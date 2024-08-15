@@ -20,8 +20,7 @@
 .navbar-nav {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  color: white;
+  align-items: center;
   text-align: left;
   font-weight: 500;
 }
@@ -30,8 +29,13 @@
   filter: invert(100%);
 }
 
-.navbar-dark .navbar-nav .nav-link {
-  color: #F8EDED;
+.nav-link{
+  color: white;
+  margin: auto;
+}
+
+.navbar-dark .navbar-nav {
+  color: white;
   margin-left: auto;
 }
 
@@ -49,6 +53,7 @@
 
 /* Home Page */
 .hero-section {
+  color: #901c1c7d;
   width: 100%;
   height: 800px;
   display: flex;
@@ -81,13 +86,14 @@
 .hero-text h4 {
   font-weight: lighter;
   margin-bottom: 5vh;
-  padding: 0 4vw;
+  padding: 0 14vw;
 }
 
 .cards-home {
   text-align: center;
-  margin: 40px 12px;
-  color: #173B45;
+  padding-top: 120px;
+  margin: 8px 12px;
+  color: #000000;
 }
 
 .cards-home-content {
@@ -99,15 +105,15 @@
 }
 
 .botonRegistro {
-  background: #173B45;
+  background: #901c1c;
   border: none;
   color: #F8EDED;
 }
 
 .botonRegistro:hover {
-  background: #F8EDED;
+  background: #a53030;
   border: none;
-  color: #173B45;
+  color: white;
 }
 
 /* Carousel */
@@ -374,15 +380,28 @@ margin-left: 2%;
   width: 70vw;
   margin: 2%;
 }
+.fondo-login {
+  background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
+   url("./assets/fondo.jpeg");
+  min-height: 100vh;
+  padding: 20vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* Sign Up Page */
 .fondo-signup {
   background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
-  url("./assets/fondo.jpeg");
-  background-size: cover;
+   url("./assets/fondo.jpeg");
   min-height: 100vh;
   padding: 20vh;
   background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
@@ -411,8 +430,8 @@ margin-left: 2%;
 }
 
 .signup-card {
-  color: #F8EDED;
-  background: rgba(23, 59, 69, 0.8);
+  color: #000000;
+  background: #ffffff;
   border-radius: 20px;
   padding: 5% 10%;
   align-items: stretch;
@@ -425,21 +444,22 @@ margin-left: 2%;
 }
 
 .signup-card .card-link {
-  color: #FF8225;
+  color: #B43F3F;
   margin: 0;
   padding: 0;
 }
 
 .signup-card button {
   color: #F8EDED;
-  background: #173B45;
-  border-color: #FF8225;
+  background: #B43F3F;
+  border-color: #B43F3F;
+  font-weight: 600;
 }
 
 .signup-card button:hover {
-  color: #173B45;
-  background: #F8EDED;
-  border-color: #173B45;
+  color: #ffffff;
+  background: #f36a6a;
+  border-color: #e15b5b;
 }
 
 .signup-card .btn:active {
@@ -452,22 +472,23 @@ margin-left: 2%;
 
 .about-page {
   background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
-  url("./assets/fondo.jpeg");
+   url("./assets/fondo.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
   padding-top: 5%;
+  padding-top: 20vh;
 }
 
 .about-card {
-  background: rgba(23, 59, 69, 0.9);
-  color: #F8EDED;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
   border-radius: 20px;
   padding: 3% 5%;
+  width: 70vw;
+  text-align: left;
 }
 
 .about-card h1 {
