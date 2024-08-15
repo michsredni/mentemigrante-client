@@ -46,10 +46,10 @@ function LoginPage() {
   };
 
   return (
-    <div className="fondo-signup d-flex justify-content-center align-items-center">
-      <Container>
+    <div className="fondo-login">
+      <Container className="login-container">
         <Row className="justify-content-center">
-          <Col xs={12} md={8} lg={6}>
+          <Col xs={12} md={8} lg={8}>
             <Card className="signup-card">
               <h2>Iniciar Sesión</h2>
               <Form onSubmit={handleLogin}>
