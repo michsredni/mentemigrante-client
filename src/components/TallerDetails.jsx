@@ -68,10 +68,10 @@ function TallerDetails(props) {
   return (
     <div>
       <Card className="taller-details-card" style={{ width: "60%" }}>
-      <Card.Img variant="top" src={imagen} alt="imagen-taller" style={{maxWidth: "40vw"}}/>
+      <Card.Img variant="top" src={imagen} alt="imagen-taller" style={{maxHeight: "40vw"}}/>
       <Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroup.Item><h5><b>Nombre de taller:</b>{nombre}</h5></ListGroup.Item>
+          <ListGroup.Item><h5><b>Nombre de taller: </b>{nombre}</h5></ListGroup.Item>
           <ListGroup.Item><p><b>Psicólogo: </b>{creador.nombreCompleto}</p></ListGroup.Item>
           <ListGroup.Item><p><b>Miembros: </b> 
         {usuarios.map((eachUsuario)=> {

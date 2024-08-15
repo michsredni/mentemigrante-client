@@ -540,7 +540,15 @@ margin-left: 2%;
 }
 
 /* Talleres */
+
+.tallerList-container{
+  margin: 20vh 0;
+}
+
 .taller-details-card{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
   gap: 5%;
   margin: 2% 20%;
 }
@@ -564,4 +572,12 @@ margin-left: 2%;
   font-weight: 200;
 
 }
+
+.taller-details-card button{
+  background-color: #B43F3F;
+  color: white;
+  margin-bottom: 40px;
+  margin-left: 32px;
+}
+
 

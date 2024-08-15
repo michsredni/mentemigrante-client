@@ -32,8 +32,8 @@ function TallerList() {
   }
 
   return (
-    <div>
-      <h1 style={{ marginBottom: "10%", color: "#173B45", marginTop: '20%'}}>Talleres</h1>
+    <div className="tallerList-container">
+      <h1 style={{ marginBottom: "3vh", color: "#173B45", marginTop: '4vh'}}>Talleres</h1>
       <br />
       {isPsico &&
         <Link to={"/talleres/crear"}>
