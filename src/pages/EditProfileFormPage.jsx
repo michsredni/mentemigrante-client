@@ -69,15 +69,15 @@ function EditProfileFormPage() {
         }
 
         if (mesesNuevoPais && anosNuevoPais) {
-          nuevoUsuario.tiempoNuevoPais = `${anosNuevoPais} años y ${mesesNuevoPais} meses`;
+          perfilEditado.tiempoNuevoPais = `${anosNuevoPais} años y ${mesesNuevoPais} meses`;
         }
     
         if (!mesesNuevoPais && anosNuevoPais) {
-          nuevoUsuario.tiempoNuevoPais = `${anosNuevoPais} años`;
+          perfilEditado.tiempoNuevoPais = `${anosNuevoPais} años`;
         }
     
         if (mesesNuevoPais && !anosNuevoPais) {
-          nuevoUsuario.tiempoNuevoPais = `${mesesNuevoPais} meses`;
+          perfilEditado.tiempoNuevoPais = `${mesesNuevoPais} meses`;
         }
 
         try {
