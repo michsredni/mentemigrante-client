@@ -57,9 +57,8 @@ function CreateTablero() {
       <br />
       <div className="tablero-box">
         <Card
-        className="signup-card"
-          border="dark"
-          style={{ width: "60%", height: "60%", marginLeft: "3%" }}
+        className="crear-tablero-card"
+          style={{ width: "80%", height: "60%", marginLeft: "3%" }}
         >
           <h3 className="my-4">Crea tu Tablero</h3>
           <Form onSubmit={handleSubmit}>

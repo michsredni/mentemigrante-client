@@ -175,6 +175,17 @@
 }
 
 /* Tablero */
+.tablero-box{
+  display: flex;
+  justify-content: center;
+}
+.crear-tablero-card{
+  color: #000000;
+  border-radius: 20px;
+  padding: 5% 10%;
+  align-items: stretch;
+  text-align: left;
+}
 
 .tablero-card {
   background: #F8EDED;
@@ -184,7 +195,6 @@
 }
 
 .tablero-card .card {
-  
   background-color: #F8EDED;
   border-radius: 4px;
   border-color: transparent;
@@ -221,7 +231,7 @@
 .tablero-form-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 100%;
   
@@ -407,7 +417,6 @@ margin-left: 2%;
   padding: 5% 10%;
   align-items: stretch;
   text-align: left;
-  max-width: 300px;
 }
 
 .signup-card .card-text {

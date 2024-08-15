@@ -79,12 +79,12 @@ function PsicoDetails() {
       <h3>Talleres de {nombreCompleto}</h3>
       {psicoTalleres.map((eachTaller) => {
           return(
-            <div>
+            <div key={eachTaller._id}>
               <Card className="taller-details-card" style={{ width: "60%" }}>
               <Card.Img variant="top" src={imagen} alt="imagen-taller" style={{maxWidth: "40vw"}}/>
               <Card.Body>
                 <ListGroup className="list-group-flush">
-                <h5 key={eachTaller._id}><b>Nombre de taller:</b>{eachTaller.nombre}</h5>
+                <h5><b>Nombre de taller:</b>{eachTaller.nombre}</h5>
                 <p><b>Descripción: </b>{eachTaller.descripcion}</p>
                 </ListGroup>
               </Card.Body>

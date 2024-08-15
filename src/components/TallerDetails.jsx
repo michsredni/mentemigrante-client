@@ -61,7 +61,7 @@ function TallerDetails(props) {
     }
   }
 
-  const filteredUser = usuarios.find((eachUsuario) => {
+  const estaRegistradoTaller = usuarios.some((eachUsuario) => { //da un true/flase
     return eachUsuario._id == idUsuarioLoggeado
   })
 
@@ -81,7 +81,8 @@ function TallerDetails(props) {
         </ListGroup>
       </Card.Body>
       {/* boton SOLO para usuarios (NO PSICOLOGOS) */}
-      {filteredUser ? <Link><button onClick={handleRemoveRegister}>Remover registro</button></Link> : <Link><button onClick={handleRegister}>Registrarse</button></Link>}
+      {isUsuario && estaRegistradoTaller && <Link><button onClick={handleRemoveRegister}>Remover registro</button></Link>}
+      {isUsuario && !estaRegistradoTaller && <Link><button onClick={handleRegister}>Registrarse</button></Link>}
       {/* boton SOLO para creador de este taller */}
       {creador._id == idUsuarioLoggeado ? (<> <Link to={`/talleres/${_id}/editar`}><button>Editar</button></Link> <Link><button onClick={deleteTaller}>Borrar</button></Link> </>) : null}
       </Card>
