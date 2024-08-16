@@ -70,8 +70,8 @@ function EditTaller() {
   }
 
   return (
-    <div>
-      <Card border="dark" style={{ width: "100%" }}>
+    <div className="crear-taller-div">
+      <Card style={{ width: "90%" }}>
         <h3 className="my-4">Editar taller</h3>
         <Form onSubmit={handleEditSubmit}>
           <Form.Group
@@ -128,7 +128,7 @@ function EditTaller() {
             />
           </Form.Group>
 
-          <Button variant="dark" type="submit" className="mb-5" disabled={isUploading} >
+          <Button type="submit" className="mb-5 crear-taller-btn" disabled={isUploading} >
             Guardar cambios
           </Button>
 

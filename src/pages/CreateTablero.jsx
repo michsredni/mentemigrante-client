@@ -50,73 +50,66 @@ function CreateTablero() {
   };
 
   return (
-    <div>
+    <div className="crear-taller-div">
       <div className="tablero-card-titulo">
         <h1>Tablero creativo</h1>
         <h3>Herramienta de externalización gratuita</h3>
       </div>
-      <br />
-      <div className="tablero-box">
-        <Card
-        className="crear-tablero-card"
-          style={{ width: "80%", height: "60%", marginLeft: "3%" }}
-        >
-          <h3 className="my-4">Crea tu Tablero</h3>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group
-              className="d-flex flex-column justify-content-center align-items-center mb-5"
-              controlId="formGridTitulo"
-            >
-              <Form.Label>Título: </Form.Label>
-              <Form.Control
-                type="text"
-                className="custom-form-control"
-                value={titulo}
-                onChange={(e) => setTitulo(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group
-              className="d-flex flex-column justify-content-center align-items-center mb-5"
-              controlId="formGridDescripcion"
-            >
-              <Form.Label>Descripción: </Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={6}
-                placeholder="Introduce una breve explicación del tablero"
-                className="custom-form-control"
-                value={descripcion}
-                onChange={(e) => setDescripcion(e.target.value)}
-              />
-            </Form.Group>
+      <Card style={{ width: "90%" }}>
+        <h3 className="my-4">Crea tu Tablero</h3>
+        <Form className="form-edit-profile" onSubmit={handleSubmit}>
+          <Form.Group
+            className="d-flex flex-column justify-content-center align-items-center mb-5"
+            controlId="formGridTitulo"
+          >
+            <Form.Label>Título: </Form.Label>
+            <Form.Control
+              type="text"
+              className="custom-form-control"
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group
+            className="d-flex flex-column justify-content-center align-items-center mb-5"
+            controlId="formGridDescripcion"
+          >
+            <Form.Label>Descripción: </Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={6}
+              placeholder="Introduce una breve explicación del tablero"
+              className="custom-form-control"
+              value={descripcion}
+              onChange={(e) => setDescripcion(e.target.value)}
+            />
+          </Form.Group>
 
-            <Form.Label>Dibujo en canvas: </Form.Label>
-            <Canvas />
+          <Form.Label>Dibujo en canvas: </Form.Label>
+          <Canvas />
 
-            <Form.Group
-              className="d-flex flex-column justify-content-center align-items-center mb-5"
-              controlId="formGridImagen"
-            >
-              <Form.Label>Imagen: </Form.Label>
-              <Form.Control
-                type="file"
-                className="custom-form-control"
-                onChange={handleFileUpload}
-                disabled={isUploading}
-              />
-            </Form.Group>
+          <Form.Group
+            className="d-flex flex-column justify-content-center align-items-center mb-5 mt-5"
+            controlId="formGridImagen"
+          >
+            <Form.Label>Imagen: </Form.Label>
+            <Form.Control
+              type="file"
+              className="custom-form-control"
+              onChange={handleFileUpload}
+              disabled={isUploading}
+            />
+          </Form.Group>
 
-            <Button
-              variant="dark"
-              type="submit"
-              className="mb-5"
-              disabled={isUploading || !imageUrl}
-            >
-              Crear
-            </Button>
-          </Form>
-        </Card>
-      </div>
+          <Button
+            type="submit"
+            className="mb-5 crear-taller-btn"
+            disabled={isUploading || !imageUrl}
+          >
+            Crear
+          </Button>
+        </Form>
+      </Card>
     </div>
   );
 }

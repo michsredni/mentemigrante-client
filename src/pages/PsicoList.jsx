@@ -30,9 +30,9 @@ function PsicoList() {
   }
 
   return (
-    <>
-      <h1>Psicólogos</h1>
-      <div className='psicoList-container'>
+    <div className="tallerList-container">
+      <h1 style={{ marginBottom: "3vh", color: "#B43F3F", marginTop: "4vh" }}>Psicólogos</h1>
+      <div className='talleres-div'>
         {psicos.map((eachPsico) => {
         return(
           <PsicoCard key={eachPsico._id} eachPsico={eachPsico}/>
@@ -40,7 +40,7 @@ function PsicoList() {
       })}
       </div>
       
-    </>
+    </div>
   )
 }
 

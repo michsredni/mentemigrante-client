@@ -53,9 +53,8 @@ function CreateTaller() {
   };
 
   return (
-    <div>
-      
-      <Card border="dark" style={{ width: "100%" }}>
+    <div className="crear-taller-div">
+      <Card style={{ width: "90%" }}>
         <h3 className="my-4">Crea tu Taller</h3>
         <Form onSubmit={handleSubmit}>
           <Form.Group
@@ -112,8 +111,7 @@ function CreateTaller() {
             />
           </Form.Group>
           
-
-          <Button variant="dark" type="submit" className="mb-5" disabled={isUploading || !imageUrl}>
+          <Button type="submit" className="mb-5 crear-taller-btn" disabled={isUploading || !imageUrl}>
             Crear
           </Button>
         </Form>

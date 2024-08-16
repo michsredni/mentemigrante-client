@@ -33,18 +33,28 @@ function TallerList() {
 
   return (
     <div className="tallerList-container">
-      <h1 style={{ marginBottom: "3vh", color: "#173B45", marginTop: '4vh'}}>Talleres</h1>
-      <br />
-      {isPsico &&
+      <h1 style={{ marginBottom: "3vh", color: "#B43F3F", marginTop: "4vh" }}>
+        Talleres
+      </h1>
+      {isPsico && (
         <Link to={"/talleres/crear"}>
-      <Button variant="dark" type="submit" className="mb-5">
-        Crea tu Taller
-      </Button></Link>} 
-      
-      
-      {talleres.map((eachTaller) => {
-        return <TallerDetails key={eachTaller._id} setTalleres={setTalleres} eachTaller={eachTaller} getData={getData}/>;
-      })}
+          <Button type="submit" className="mb-5 crear-taller-button">
+            Crea tu Taller
+          </Button>
+        </Link>
+      )}
+      <div className="talleres-div">
+        {talleres.map((eachTaller) => {
+          return (
+            <TallerDetails
+              key={eachTaller._id}
+              setTalleres={setTalleres}
+              eachTaller={eachTaller}
+              getData={getData}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

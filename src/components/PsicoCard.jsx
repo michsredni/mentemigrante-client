@@ -6,9 +6,9 @@ function PsicoCard(props) {
   const {imagen, nacionalidad, nombreCompleto, residencia, _id} = props.eachPsico
 
   return (
-    <Card className="psico-card-box" style={{ width: "60%" }}>
+    <Card className="psico-card-box" style={{ width: "100%" }}>
       <Card.Img className='psico-card-image' variant="top" src={imagen} alt="foto" />
-          <Card.Body className='psico-card-body'>
+          <Card.Body>
             <Card.Title >{nombreCompleto}</Card.Title>
             <Card.Text className="list-group-flush">
               <Card.Text>

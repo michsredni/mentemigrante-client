@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-::selection{
+::selection {
   background: #8e44ad;
   color: #fff;
 }
 
 #root {
-  margin: 0; 
+  margin: 0;
   text-align: center;
-  background-color: #F8EDED;
+  background-color: #f8eded;
   color: black;
 }
 
@@ -29,9 +29,15 @@
   filter: invert(100%);
 }
 
-.nav-link{
-  color: white;
+.nav-link {
+  color: #f8eded;
   margin: auto;
+  font-weight: 200;
+}
+
+.nav-link:active {
+  color: #254e5a;
+  font-weight: 200;
 }
 
 .navbar-dark .navbar-nav {
@@ -47,8 +53,18 @@
   margin-right: 10%;
 }
 
-.dropdown-menu{
-  background-color: #254e5a;
+.dropdown-menu {
+  background-color: white;
+}
+
+.dropdown-menu .dropdown-item {
+  color: #b43f3f;
+  font-weight: lighter;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #b43f3f;
+  color: white;
 }
 
 /* Home Page */
@@ -58,8 +74,8 @@
   height: 800px;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
-   url("./assets/fondo.jpeg");
+  background: linear-gradient(#b43f3f, rgba(255, 131, 37, 0.3)),
+    url("./assets/fondo.jpeg");
   background-size: cover;
   background-position: center;
   justify-content: center;
@@ -96,6 +112,10 @@
   color: #000000;
 }
 
+.cards-title {
+  color: #b43f3f;
+}
+
 .cards-home-content {
   display: flex;
   flex-direction: row;
@@ -105,7 +125,7 @@
 }
 
 .card-home {
-  background-color: #173b45;
+  background-color: #b43f3f;
   color: #f8eded;
   padding: 5% 0;
   display: flex;
@@ -133,7 +153,7 @@
 .botonRegistro {
   background: #901c1c;
   border: none;
-  color: #F8EDED;
+  color: #f8eded;
 }
 
 .botonRegistro:hover {
@@ -142,10 +162,9 @@
   color: white;
 }
 
-
 /* Carousel */
 
-.carousel-div{
+.carousel-div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -153,7 +172,7 @@
   margin-top: 15vh;
 }
 
-.carousel-div .carousel-item{
+.carousel-div .carousel-item {
   width: 50vw;
   height: 50vh;
 }
@@ -166,33 +185,33 @@
   align-items: center;
 }
 
-.profile-card{
-  background-color: #173B45;
+.profile-card {
+  background-color: #b43f3f;
 }
 
 .profile-card .card-title {
-  color: #F8EDED;
+  color: #f8eded;
   font-size: xx-large;
   font-weight: lighter;
 }
 
-.profile-card .list-group-item{
-  background-color: #173B45;
+.profile-card .list-group-item {
+  background-color: #b43f3f;
   border: none;
-  color: #F8EDED;
+  color: #f8eded;
   font-weight: lighter;
 }
 
 .profile-card .btn {
-  background-color: #173B45;
-  border-color: #FF8225;
-  color: #F8EDED;
+  background-color: #173b45;
+  border-color: #ff8225;
+  color: #f8eded;
 }
 
 .profile-card .btn:hover {
-  background-color: #FF8225;
-  border-color: #173B45;
-  color: #173B45;
+  background-color: #ff8225;
+  border-color: #173b45;
+  color: #173b45;
 }
 
 .profileDiv {
@@ -207,113 +226,160 @@
   width: 40%;
 }
 
+.psico-card-box .card-title {
+  color: #b43f3f;
+  font-weight: 400;
+}
+
+.psico-card-box .card-text {
+  color: #b43f3f;
+  font-weight: 300;
+}
+
 /* Tablero */
-.tablero-box{
+.tablero-box {
   display: flex;
   justify-content: center;
   align-content: center;
 }
-.crear-tablero-card{
-  color:#173B45;
+.crear-tablero-card {
+  color: #173b45;
   border-radius: 20px;
   padding: 5% 10%;
   align-items: stretch;
   text-align: left;
 }
 
-.crear-tablero-card h3{
-display: flex;
-justify-content: center;
+.crear-tablero-card h3 {
+  display: flex;
+  justify-content: center;
 }
 .tablero-card {
-  background: #F8EDED;
-  background-color: #F8EDED;
+  background: #f8eded;
+  background-color: #f8eded;
   border-radius: 4px;
-  border-color: #173B45;
+  border-color: #173b45;
 }
 
 .tablero-card .card {
-  background-color: #F8EDED;
+  background-color: #f8eded;
   border-radius: 4px;
   border-color: transparent;
 }
 
 .tableros-titulo {
-  color: #173B45;
+  color: #173b45;
   font-size: xx-large;
   font-weight: lighter;
 }
 
-.tablero-card .card-body .card-title{
+.tablero-card .card-body .card-title {
   font-weight: 400;
-  background-color: #F8EDED;
-  color: #173B45;
+  background-color: #f8eded;
+  color: #173b45;
 }
 
-.tablero-card .card-body .card-text{
+.tablero-card .card-body .card-text {
   font-weight: lighter;
-  background-color: #F8EDED;
-  color: #173B45;
+  background-color: #f8eded;
+  color: #173b45;
 }
 
 .tablero-card .btn {
-  background-color: #173B45;
-  color: #F8EDED;
+  background-color: #173b45;
+  color: #f8eded;
 }
 
 .tablero-card .btn:hover {
-  background-color: #F8EDED;
-  color: #173B45;
+  background-color: #f8eded;
+  color: #173b45;
 }
 
-.tablero-form-card {
-  display: flex;
-  flex-direction: column;
- justify-content: center; 
-  align-items: center;
-  height: 100%;
-  
-}
-
-.custom-form-control {
-  border-color: #F8EDED;
-  width: 50%;
-}
-
-.custom-form-control:focus {
-  border-color: #dadada; 
-  box-shadow: 0 0 0 0.2rem rgba(50, 52, 54, 0.25);
-}
-
-.tablero-card-titulo{
-  margin-top: 5%;
-  color: #173B45;
-}
-
-
-.sketch-canvas{
+.tableroCardBtns {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
+.tablero-form-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
-.sketch-canvas-drawing{
+.custom-form-control {
+  border-color: #b43f3f;
+  width: 50%;
+}
+
+.custom-form-control:focus {
+  border-color: #dadada;
+}
+.crear-taller-div {
+  padding: 12vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.crear-taller-div h3,
+label {
+  color: #b43f3f;
+}
+
+.crear-taller-btn {
+  background-color: #b43f3f;
+  border-color: #f8eded;
+}
+
+.crear-taller-btn:hover {
+  background-color: #b43f3f;
+  border-color: #f8eded;
+}
+
+.crear-taller-btn:disabled {
+  background-color: #b88888;
+  border-color: #f8eded;
+}
+
+.tablero-card-titulo {
+  color: #b43f3f;
+  margin: 5vh 0;
+}
+
+.tiempo-pais-edit-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 2vh;
+}
+
+.sketch-canvas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sketch-canvas-drawing {
   display: flex;
   flex-direction: column;
 }
 
-.sketch-canvas-tools{
-margin-left: 2%;
+.sketch-canvas-tools {
+  margin-left: 2%;
 }
 
-.sketch-canvas-tools-actions{
+.sketch-canvas-tools-actions {
   display: flex;
   flex-direction: column;
 }
 
 /* User */
-.user-card{
+.user-card {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -326,64 +392,99 @@ margin-left: 2%;
   width: 25vw;
 }
 
-.user-info-title{
-  color: #173B45;
+.user-info-title {
+  color: #b43f3f;
   font-weight: 400;
+}
+
+.user-info .card-title {
+  color: #b43f3f;
+  font-weight: 400;
+}
+
+.user-info .list-group-item {
+  color: #b43f3f;
+  font-weight: 300;
+  border: none;
 }
 
 /* Psicologo */
 
-.psicoList-container{
+.psicoList-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
-  gap: 12px;
 }
 
-.psico-card-box{
-  max-width: 300px;
+.psico-card-box {
   background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 12px;
+  padding: 4vh 5vw;
+  margin-bottom: 2vh;
 }
-.psicoList-container :focus{
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24)
+
+.psicoList-container :focus {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24);
 }
 
 .psico-card-box img {
-  height: 100%;
-  width: calc(50% - 10px);
+  height: 30vh;
+  width: 30vh;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #fff; 
+  border: 2px solid #fff;
 }
 
-.psico-card-btns{
+.psico-card-box .card-title {
+  color: #b43f3f;
+  font-weight: 400;
+}
+
+.psico-card-box .card-text {
+  color: #b43f3f;
+  font-weight: 300;
+}
+
+.psico-card-btns {
   margin-top: 20px;
   margin-bottom: 5px;
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: #173B45;
+  color: #f8eded;
+  background-color: #b43f3f;
+  border-color: #f8eded;
+  font-weight: 300;
 }
 
-.psico-details{
+.psico-card-btns:hover {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #f8eded;
+  color: #b43f3f;
+  border-color: #b43f3f;
+}
+
+.psico-details {
   margin-top: 18vh;
 }
 
-.psico-details-content{
+.psico-details-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.psico-details-card { 
+.psico-details-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -395,19 +496,32 @@ margin-left: 2%;
   padding: 2% 0;
 }
 
-.psico-details-card img{
+.psico-details-card img {
   align-items: center;
   width: 50%;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
-.psico-details-talleres{
+.psico-details-talleres {
   width: 70vw;
   margin: 2%;
 }
+
+.taller-psico-details h5 {
+  color: #b43f3f;
+  font-weight: 300;
+  border: none;
+}
+
+.taller-psico-details p {
+  color: #b43f3f;
+  font-weight: 300;
+  border: none;
+}
+
 .fondo-login {
-  background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
-   url("./assets/fondo.jpeg");
+  background: linear-gradient(#b43f3f, rgba(255, 131, 37, 0.3)),
+    url("./assets/fondo.jpeg");
   min-height: 100vh;
   padding: 20vh;
   background-position: center;
@@ -417,12 +531,11 @@ margin-left: 2%;
   justify-content: center;
   align-items: center;
 }
-
 
 /* Sign Up Page */
 .fondo-signup {
-  background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
-   url("./assets/fondo.jpeg");
+  background: linear-gradient(#b43f3f, rgba(255, 131, 37, 0.3)),
+    url("./assets/fondo.jpeg");
   min-height: 100vh;
   padding: 20vh;
   background-position: center;
@@ -433,7 +546,7 @@ margin-left: 2%;
   align-items: center;
 }
 
-.signup-container{
+.signup-container {
   display: flex;
   flex-direction: column;
 }
@@ -445,12 +558,12 @@ margin-left: 2%;
 }
 
 .signup-form-control {
-  border-color: #F8EDED;
+  border-color: #f8eded;
   width: 100%;
 }
 
 .signup-form-control:focus {
-  border-color: #dadada; 
+  border-color: #dadada;
   box-shadow: 0 0 0 0.2rem rgba(50, 52, 54, 0.25);
 }
 
@@ -469,15 +582,15 @@ margin-left: 2%;
 }
 
 .signup-card .card-link {
-  color: #B43F3F;
+  color: #b43f3f;
   margin: 0;
   padding: 0;
 }
 
 .signup-card button {
-  color: #F8EDED;
-  background: #B43F3F;
-  border-color: #B43F3F;
+  color: #f8eded;
+  background: #b43f3f;
+  border-color: #b43f3f;
   font-weight: 600;
 }
 
@@ -488,16 +601,16 @@ margin-left: 2%;
 }
 
 .signup-card .btn:active {
-  color: #F8EDED;
-  background: #173B45;
-  border-color: #FF8225;
+  color: #f8eded;
+  background: #173b45;
+  border-color: #ff8225;
 }
 
 /* About us page*/
 
 .about-page {
-  background: linear-gradient(#B43F3F, rgba(255, 131, 37, 0.3)),
-   url("./assets/fondo.jpeg");
+  background: linear-gradient(#b43f3f, rgba(255, 131, 37, 0.3)),
+    url("./assets/fondo.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -526,7 +639,8 @@ margin-left: 2%;
   font-size: 1.5rem;
 }
 
-.about-card p, .about-card ul {
+.about-card p,
+.about-card ul {
   margin-bottom: 1rem;
 }
 
@@ -541,23 +655,65 @@ margin-left: 2%;
 
 /* Talleres */
 
-.tallerList-container{
+.tallerList-container {
   margin: 20vh 0;
-}
-
-.taller-details-card{
   display: flex;
   flex-direction: column;
-  text-align: left;
+  align-items: center;
+}
+
+.talleres-div {
+  display: flex;
+  flex-direction: column;
+  text-align: -webkit-center;
+}
+
+.crear-taller-button {
+  background-color: #b43f3f;
+  border: 1px solid #f8eded;
+}
+
+.crear-taller-button:hover {
+  background-color: #f8eded;
+  border: 1px solid #b43f3f;
+  color: #b43f3f;
+}
+
+.taller-details-card {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
   gap: 5%;
-  margin: 2% 20%;
+  margin: 2% 0;
+  width: 60vw;
+}
+.taller-details-card .list-group-item h5 {
+  font-weight: 300;
+}
+.taller-details-card .list-group-item {
+  color: #b43f3f;
+  font-weight: 300;
+}
+
+.taller-card-image-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1.5vh 1.5vw;
+}
+
+.taller-card-info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1.5vh 1.5vw;
 }
 
 /* Footer */
-.footer{
+.footer {
   padding: 3vh;
-  background-color:#254e5a;
-  color:#F8EDED
+  background-color: #b43f3f;
+  color: #f8eded;
 }
 
 .footer img {
@@ -568,16 +724,17 @@ margin-left: 2%;
 .madeBy a {
   margin-left: 0.5vw;
   font-size: x-large;
-  color: #F8EDED;
+  color: #f8eded;
   font-weight: 200;
-
 }
 
-.taller-details-card button{
-  background-color: #B43F3F;
+.madeBy a:hover {
+  color: #173b45;
+}
+
+.taller-details-card button {
+  background-color: #b43f3f;
   color: white;
   margin-bottom: 40px;
   margin-left: 32px;
 }
-
-

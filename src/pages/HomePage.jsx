@@ -38,7 +38,7 @@ function HomePage() {
         </div>
       </div>
       <div className="cards-home">
-        <h2>Cómo funciona Mentemigrante</h2>
+        <h2 className="cards-title">Cómo funciona Mentemigrante</h2>
         <br />
         <div className="cards-home-content">
           <Card className="card-home">

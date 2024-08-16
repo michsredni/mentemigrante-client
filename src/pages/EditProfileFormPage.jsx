@@ -1,102 +1,102 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
-import service from '../service/service.config';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
+import service from "../service/service.config";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 function EditProfileFormPage() {
+  const { isPsico } = useContext(AuthContext);
 
-    const {isPsico} = useContext(AuthContext)
+  const [imageUrl, setImageUrl] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
+  const [nacionalidad, setNacionalidad] = useState("");
+  const [residencia, setResidencia] = useState("");
+  const [tiempoNuevoPais, setTiempoNuevoPais] = useState("");
+  const [especializacion, setEspecializacion] = useState("");
+  const [mesesNuevoPais, setMesesNuevoPais] = useState("");
+  const [anosNuevoPais, setAnosNuevoPais] = useState("");
 
-    const [imageUrl, setImageUrl] = useState("")
-    const [isUploading, setIsUploading] = useState(false)
-    const [nacionalidad, setNacionalidad] = useState("")
-    const [residencia, setResidencia] = useState("")
-    const [tiempoNuevoPais, setTiempoNuevoPais] = useState("")
-    const [especializacion, setEspecializacion] = useState("")
-    const [mesesNuevoPais, setMesesNuevoPais] = useState("");
-    const [anosNuevoPais, setAnosNuevoPais] = useState("");
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  useEffect(() => {
+    getData();
+  }, []);
 
-    useEffect(() => {
-        getData()
-    }, [])
+  const getData = async () => {
+    try {
+      const response = await service.get("/usuarios/propio");
+      console.log(response.data);
+      setImageUrl(response.data.imageUrl);
+      setNacionalidad(response.data.nacionalidad);
+      setResidencia(response.data.residencia);
+      setTiempoNuevoPais(response.data.tiempoNuevoPais);
+      setAnosNuevoPais(response.data.anosNuevoPais);
+      setMesesNuevoPais(response.data.mesesNuevoPais);
+      setEspecializacion(response.data.especializacion);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    const getData = async () => {
-        try {
-          const response = await service.get("/usuarios/propio");
-          console.log(response.data);
-          setImageUrl(response.data.imageUrl)
-          setNacionalidad(response.data.nacionalidad)
-          setResidencia(response.data.residencia)
-          setTiempoNuevoPais(response.data.tiempoNuevoPais)
-          setAnosNuevoPais(response.data.anosNuevoPais)
-          setMesesNuevoPais(response.data.mesesNuevoPais)
-          setEspecializacion(response.data.especializacion)
-        } catch (error) {
-          console.log(error);
-        }
-      };
-
-    const handleFileUpload = async (event) => {
-        if (!event.target.files[0]) {
-          return; // Si no se selecciona un archivo, no se hace nada. El return nos saca del handle.
-        } 
-    
-        // En caso de que hayamos seleccionado una nueva imagen, seguimos adelante como siempre.
-        setIsUploading(true); 
-    
-        const uploadData = new FormData(); 
-        uploadData.append("image", event.target.files[0]); // Subimos la imagen nueva
-    
-        try {
-            const response = await service.post("/upload", uploadData); 
-            setImageUrl(response.data.imageUrl); // Actualizamos `imageUrl` con la nueva imagen subida
-            setIsUploading(false); 
-        } catch (error) {
-          console.error("Error uploading the image", error);
-          setIsUploading(false); 
-        }
+  const handleFileUpload = async (event) => {
+    if (!event.target.files[0]) {
+      return; // Si no se selecciona un archivo, no se hace nada. El return nos saca del handle.
     }
 
-    const handleEditSubmit = async (e) => {
-        e.preventDefault();
-        const perfilEditado = {
-            imagen: imageUrl,
-            nacionalidad,
-            residencia,
-            especializacion
-        }
+    // En caso de que hayamos seleccionado una nueva imagen, seguimos adelante como siempre.
+    setIsUploading(true);
 
-        if (mesesNuevoPais && anosNuevoPais) {
-          perfilEditado.tiempoNuevoPais = `${anosNuevoPais} años y ${mesesNuevoPais} meses`;
-        }
-    
-        if (!mesesNuevoPais && anosNuevoPais) {
-          perfilEditado.tiempoNuevoPais = `${anosNuevoPais} años`;
-        }
-    
-        if (mesesNuevoPais && !anosNuevoPais) {
-          perfilEditado.tiempoNuevoPais = `${mesesNuevoPais} meses`;
-        }
+    const uploadData = new FormData();
+    uploadData.append("image", event.target.files[0]); // Subimos la imagen nueva
 
-        try {
-            await service.put("/usuarios/propio", perfilEditado)
-            navigate("/perfil")
-        } catch (error) {
-            console.log(error)
-        }
+    try {
+      const response = await service.post("/upload", uploadData);
+      setImageUrl(response.data.imageUrl); // Actualizamos `imageUrl` con la nueva imagen subida
+      setIsUploading(false);
+    } catch (error) {
+      console.error("Error uploading the image", error);
+      setIsUploading(false);
     }
+  };
+
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+    const perfilEditado = {
+      imagen: imageUrl,
+      nacionalidad,
+      residencia,
+      especializacion,
+    };
+
+    if (mesesNuevoPais && anosNuevoPais) {
+      perfilEditado.tiempoNuevoPais = `${anosNuevoPais} años y ${mesesNuevoPais} meses`;
+    }
+
+    if (!mesesNuevoPais && anosNuevoPais) {
+      perfilEditado.tiempoNuevoPais = `${anosNuevoPais} años`;
+    }
+
+    if (mesesNuevoPais && !anosNuevoPais) {
+      perfilEditado.tiempoNuevoPais = `${mesesNuevoPais} meses`;
+    }
+
+    try {
+      await service.put("/usuarios/propio", perfilEditado);
+      navigate("/perfil");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <div>
-      <Container>
-        <Card style={{ width: "100%" }}>
+    <div className="crear-taller-div">
+      <Card style={{ width: "90%" }}>
         <h3 className="my-4">Mi perfil</h3>
-        <Form className='form-edit-profile' onSubmit={handleEditSubmit}>
-
-            <Form.Group className="d-flex flex-column justify-content-center align-items-center texta-align-left mb-5" controlId="formGridImagen">
+        <Form className="form-edit-profile" onSubmit={handleEditSubmit}>
+          <Form.Group
+            className="d-flex flex-column justify-content-center align-items-center text-align-left mb-5"
+            controlId="formGridImagen"
+          >
             <Form.Label>Imagen: </Form.Label>
             <Form.Control
               type="file"
@@ -104,22 +104,25 @@ function EditProfileFormPage() {
               onChange={handleFileUpload}
               disabled={isUploading}
             />
-            </Form.Group>
-            
-            <Form.Group
+          </Form.Group>
+
+          <Form.Group
             className="d-flex flex-column justify-content-center align-items-center mb-5"
-            controlId="formGridNombre" >
+            controlId="formGridNombre"
+          >
             <Form.Label>Nacionalidad: </Form.Label>
             <Form.Control
               type="text"
               className="custom-form-control"
               value={nacionalidad}
               onChange={(e) => setNacionalidad(e.target.value)}
-            /></Form.Group>
+            />
+          </Form.Group>
 
-            <Form.Group
+          <Form.Group
             className="d-flex flex-column justify-content-center align-items-center mb-5"
-            controlId="formGridNombre" >
+            controlId="formGridNombre"
+          >
             <Form.Label>Residencia: </Form.Label>
             <Form.Control
               type="text"
@@ -127,49 +130,60 @@ function EditProfileFormPage() {
               className="custom-form-control"
               value={residencia}
               onChange={(e) => setResidencia(e.target.value)}
-            /></Form.Group>
-
-            <h6 style={{ marginBottom: "1vw", fontWeight: "normal" }}>
+            />
+          </Form.Group>
+          <h6 style={{ marginBottom: "1vw", fontWeight: "normal", color: "#b43f3f"}}>
                   Tiempo en nuevo país:
             </h6>
-             <Form.Group className="custom-form-control">
-             <Form.Label style={{ marginRight: "1vw" }}>Meses: </Form.Label>
-              <Form.Control
-                  type="number"
-                  controlId="formGridMeses"
-                  className="d-flex flex-column justify-content-left align-items-left mb-5"
-                  value={mesesNuevoPais}
-                  onChange={(e) => setMesesNuevoPais(e.target.value)}/>
-              <Form.Label style={{marginRight: "1vw", marginLeft: "1vw"}}>Años:{" "}</Form.Label>
-              <Form.Control
-                  type="number"
-                   className="d-flex flex-column justify-content-center align-items-center mb-5"
-                   value={anosNuevoPais}
-                  onChange={(e) => setAnosNuevoPais(e.target.value)}/>
-              </Form.Group>
 
-            {isPsico && <Form.Group
-            className="custom-form-control"
-            controlId="formGridEspecializacion" >
-            <Form.Label>Especializacion: </Form.Label>
+          <Form.Group className="d-flex flex-column justify-content-center align-items-center text-align-left mb-5">
+            <Form.Label style={{ marginRight: "1vw" }}>Meses: </Form.Label>
             <Form.Control
-              type="text"
+              type="number"
+              controlId="formGridMeses"
               className="custom-form-control"
-              value={especializacion}
-              onChange={(e) => setEspecializacion(e.target.value)}
-            /></Form.Group>}
-            
+              value={mesesNuevoPais}
+              onChange={(e) => setMesesNuevoPais(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="d-flex flex-column justify-content-center align-items-center text-align-left mb-5">
+            <Form.Label style={{ marginRight: "1vw", marginLeft: "1vw" }}>
+              Años:{" "}
+            </Form.Label>
+            <Form.Control
+              type="number"
+              className="custom-form-control"
+              value={anosNuevoPais}
+              onChange={(e) => setAnosNuevoPais(e.target.value)}
+            />
+          </Form.Group>
 
-          <Button variant="dark" type="submit" className="mb-5" disabled={isUploading || !imageUrl}>
+          {isPsico && (
+            <Form.Group
+              className="custom-form-control"
+              controlId="formGridEspecializacion"
+            >
+              <Form.Label>Especializacion: </Form.Label>
+              <Form.Control
+                type="text"
+                className="custom-form-control"
+                value={especializacion}
+                onChange={(e) => setEspecializacion(e.target.value)}
+              />
+            </Form.Group>
+          )}
+
+          <Button
+            type="submit"
+            className="mb-5 crear-taller-btn"
+            disabled={isUploading}
+          >
             Guardar
           </Button>
         </Form>
       </Card>
-
-      </Container>
-        
     </div>
-  )
+  );
 }
 
-export default EditProfileFormPage
+export default EditProfileFormPage;

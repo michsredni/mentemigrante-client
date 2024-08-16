@@ -55,13 +55,17 @@ function UserDetails() {
     oneUser;
 
   return (
-    <div className="user-profile">
+    <div className="tallerList-container">
       <h1 className="user-info-title">Información sobre {nombreCompleto}</h1>
-      <Card className="profile-card mt-5" style={{ width: "30%"}}>
-        <div className="profileDiv">
-          <Card.Img variant="top" src={imagen} alt="foto" />
+      <Card className="psico-card-box mt-5" style={{ width: "30%" }}>
+          <Card.Img
+            className="psico-card-image"
+            variant="top"
+            src={imagen}
+            alt="foto"
+          />
           <Card.Body>
-            <ListGroup className="list-group-flush">
+            <ListGroup className="user-info">
               <ListGroup.Item>
                 <b>Nacionalidad: </b>
                 {nacionalidad}
@@ -76,18 +80,19 @@ function UserDetails() {
               </ListGroup.Item>
             </ListGroup>
           </Card.Body>
-        </div>
       </Card>
-      <Card className="tablero-card mt-4" border="dark" style={{ width: "30%" }}>
-        <Card.Body>
-          <Card.Title>Tableros de {nombreCompleto}</Card.Title>
+      <div className="tallerList-container" style={{ margin: "2vh"}}>
+        <h3 style={{ marginBottom: "3vh", color: "#B43F3F"}}>
+          Tableros de {nombreCompleto}
+        </h3>
+        <div className="talleres-div" >
           {userTableros.map((eachTablero) => {
             return (
               <TableroCard key={eachTablero._id} eachTablero={eachTablero} />
             );
           })}
-        </Card.Body>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }
