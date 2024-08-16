@@ -18,7 +18,6 @@ function TallerDetails(props) {
   const getDataTaller = async () => {
     try {
       const response = await service.get(`/talleres/${_id}`);
-      // console.log(response.data)
       setOneTaller(response.data);
     } catch (error) {
       console.log(error);
@@ -66,7 +65,7 @@ function TallerDetails(props) {
   };
 
   const estaRegistradoTaller = usuarios.some((eachUsuario) => {
-    //da un true/flase
+
     return eachUsuario._id == idUsuarioLoggeado;
   });
 

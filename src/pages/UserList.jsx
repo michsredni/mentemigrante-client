@@ -13,7 +13,6 @@ function UserList() {
   const getData = async () => {
     try {
       const response = await service.get("/usuarios/user/rol");
-      // console.log(response.data)
       setUsers(response.data);
     } catch (error) {
       console.log(error);

@@ -15,8 +15,7 @@ function TallerList() {
 
   const getData = async () => {
     try {
-      const response = await service.get("/talleres");
-      console.log(response.data);
+      const response = await service.get("/talleres");  
       setTalleres(response.data);
     } catch (error) {
       console.log(error);

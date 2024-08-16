@@ -63,7 +63,7 @@ function Canvas() {
       />
 
       <div className='sketch-canvas-tools'>
-        {/* Color picker */}
+      
         <Button
           size='icon'
           type='button'
@@ -79,7 +79,7 @@ function Canvas() {
           />
         </Button>
 
-        {/* Drawing mode */}
+     
         <div className='sketch-canvas-drawing'>
           <Button
             size='icon'
@@ -101,7 +101,7 @@ function Canvas() {
           </Button>
         </div>
 
-        {/* Actions */}
+        
         <div className='sketch-canvas-tools-actions'>
           <Button
             size='icon'

@@ -25,7 +25,6 @@ function EditProfileFormPage() {
   const getData = async () => {
     try {
       const response = await service.get("/usuarios/propio");
-      console.log(response.data);
       setImageUrl(response.data.imageUrl);
       setNacionalidad(response.data.nacionalidad);
       setResidencia(response.data.residencia);
@@ -40,18 +39,18 @@ function EditProfileFormPage() {
 
   const handleFileUpload = async (event) => {
     if (!event.target.files[0]) {
-      return; // Si no se selecciona un archivo, no se hace nada. El return nos saca del handle.
+      return; 
     }
 
-    // En caso de que hayamos seleccionado una nueva imagen, seguimos adelante como siempre.
+    
     setIsUploading(true);
 
     const uploadData = new FormData();
-    uploadData.append("image", event.target.files[0]); // Subimos la imagen nueva
+    uploadData.append("image", event.target.files[0]); 
 
     try {
       const response = await service.post("/upload", uploadData);
-      setImageUrl(response.data.imageUrl); // Actualizamos `imageUrl` con la nueva imagen subida
+      setImageUrl(response.data.imageUrl); 
       setIsUploading(false);
     } catch (error) {
       console.error("Error uploading the image", error);
@@ -66,6 +65,9 @@ function EditProfileFormPage() {
       nacionalidad,
       residencia,
       especializacion,
+      mesesNuevoPais,
+      
+
     };
 
     if (mesesNuevoPais && anosNuevoPais) {

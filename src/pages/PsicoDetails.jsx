@@ -88,9 +88,6 @@ function PsicoDetails() {
           </ListGroup>
         </Card.Body>
       </Card>
-      {/* TO DO por si no aparecen talleres*/}
-      {}
-      {/* {project.tasks.length === 0 ? <h4>No se han creado talleres</h4> : null} */}
       <div className="tallerList-container" style={{ margin: "2vh" }}>
         <h3 style={{ marginBottom: "3vh", color: "#B43F3F" }}>
           Talleres de {nombreCompleto}
@@ -102,7 +99,7 @@ function PsicoDetails() {
                 <Card className="psico-card-box" style={{ width: "100%" }}>
                   <Card.Img
                     variant="top"
-                    src={imagen}
+                    src={eachTaller.imagen}
                     alt="imagen-taller"
                     style={{ width: "80%", borderRadius: "5px" }}
                   />
