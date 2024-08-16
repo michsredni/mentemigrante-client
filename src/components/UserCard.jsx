@@ -11,8 +11,8 @@ function UserCard(props) {
       <Card.Body>
         <Card.Title>{nombreCompleto}</Card.Title>
         <Card.Text>
-        <span><b>Nacionalidad: </b>{nacionalidad}</span><br />
-        <span><b>Residencia: </b>{residencia}</span>
+        <span style={{color: "#b43f3f"}}><b>Nacionalidad: </b>{nacionalidad}</span><br />
+        <span style={{color: "#b43f3f"}}><b>Residencia: </b>{residencia}</span>
         </Card.Text>
         <Link to={`/usuarios/${_id}`}>
           <Button className='user-card-btns'>Ver detalles</Button>
