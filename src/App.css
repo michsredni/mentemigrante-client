@@ -723,7 +723,7 @@ label {
 .taller-details-card {
   display: flex;
   flex-direction: row;
-  text-align: center;
+  text-align: left;
   gap: 5%;
   margin: 2% 0;
   width: 60vw;
