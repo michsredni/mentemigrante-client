@@ -698,7 +698,7 @@ label {
   margin: 20vh 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 .talleres-div {
