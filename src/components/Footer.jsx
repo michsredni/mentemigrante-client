@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/mentEmigrante-logo.png";
+import logo from "../assets/MentEmigrante-logo.png";
 
 function Footer() {
   return (
