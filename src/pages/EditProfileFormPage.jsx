@@ -160,7 +160,7 @@ function EditProfileFormPage() {
 
           {isPsico && (
             <Form.Group
-              className="custom-form-control"
+              className="d-flex flex-column justify-content-center align-items-center text-align-left mb-5"
               controlId="formGridEspecializacion"
             >
               <Form.Label>Especializacion: </Form.Label>
