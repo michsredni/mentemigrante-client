@@ -32,7 +32,7 @@ function UserList() {
       <h1 style={{ marginBottom: "3vh", color: "#B43F3F", marginTop: "4vh" }}>
         Usuarios
       </h1>
-      <div className="talleres-div">
+      <div className="usuarios-div">
         {users.map((eachUser) => {
           return <UserCard key={eachUser._id} eachUser={eachUser} />;
         })}

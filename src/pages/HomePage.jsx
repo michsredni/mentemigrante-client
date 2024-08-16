@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 
 import { Button, Card, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../assets/MentEmigrante-logo.png";
 import cardImageOne from "../assets/vector2.png";
 import cardImageTwo from "../assets/vector3.png";
 import { AuthContext } from "../context/auth.context";

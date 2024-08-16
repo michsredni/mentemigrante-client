@@ -177,8 +177,57 @@
   height: 50vh;
 }
 
-/* Profile */
+/* Usuarios */
+.usuarios-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
 
+.user-card-box {
+  max-width: 33vw;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 8rem;
+  margin-bottom: 2vh;
+  color: #b43f3f;
+  font-weight: 400;
+}
+
+.user-card-box img {
+  height: 30vh;
+  width: 30vh;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-card-btns {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  width: 100%;
+  color: #f8eded;
+  background-color: #b43f3f;
+  border-color: #b43f3f;
+  font-weight: 300;
+}
+
+.user-card-btns:hover {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  width: 100%;
+  background-color: #ba4a4a;
+  color: white;
+  font-weight: 500;
+  border-color: #b43f3f;
+}
+
+/* Profile */
 .user-profile {
   display: flex;
   flex-direction: column;
@@ -226,15 +275,6 @@
   width: 40%;
 }
 
-.psico-card-box .card-title {
-  color: #b43f3f;
-  font-weight: 400;
-}
-
-.psico-card-box .card-text {
-  color: #b43f3f;
-  font-weight: 300;
-}
 
 /* Tablero */
 .tablero-box {
@@ -379,18 +419,6 @@ label {
 }
 
 /* User */
-.user-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 12px;
-}
-
-.user-card img {
-  width: 25vw;
-}
 
 .user-info-title {
   color: #b43f3f;
@@ -419,7 +447,17 @@ label {
   padding: 20px;
 }
 
-.psico-card-box {
+.card-title {
+  color: #b43f3f;
+  font-weight: 400;
+}
+
+.card-text {
+  color: #b43f3f;
+  font-weight: 300;
+}
+
+.psico-card-box{
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -427,6 +465,8 @@ label {
   align-items: center;
   padding: 4vh 5vw;
   margin-bottom: 2vh;
+  color: #b43f3f;
+  font-weight: 400;
 }
 
 .psicoList-container :focus {
@@ -438,7 +478,6 @@ label {
   width: 30vh;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #fff;
 }
 
 .psico-card-box .card-title {
@@ -664,8 +703,10 @@ label {
 
 .talleres-div {
   display: flex;
-  flex-direction: column;
-  text-align: -webkit-center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
 }
 
 .crear-taller-button {
@@ -682,7 +723,7 @@ label {
 .taller-details-card {
   display: flex;
   flex-direction: row;
-  text-align: center;
+  text-align: left;
   gap: 5%;
   margin: 2% 0;
   width: 60vw;
