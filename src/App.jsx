@@ -45,7 +45,7 @@ function App() {
         <Route path ="/psicologos/:psicoId" element={ <Private> <PsicoDetails/> </Private>}/>
         <Route path ="/talleres" element={<TallerList/>}/>
         <Route path ="/talleres/crear" element={ <Psicologo> <CreateTaller/> </Psicologo> }/>
-        <Route path ="/talleres/:tallerId" element={<TallerDetails/>}/>
+        <Route path ="/talleres/:tallerId" element={ <Private> <TallerDetails/> </Private>}/>
         <Route path ="/talleres/:tallerId/editar" element={ <Psicologo> <EditTaller/> </Psicologo>  }/>
         <Route path ="/tablero-creativo/crear" element={ <User> <CreateTablero/> </User>}/>
         <Route path ="/tablero-creativo/:tableroId/editar" element={ <User> <EditTablero/> </User>}/>   
