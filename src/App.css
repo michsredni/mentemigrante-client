@@ -116,6 +116,10 @@
   color: #b43f3f;
 }
 
+.card-text{
+  color: white;
+}
+
 .cards-home-content {
   display: flex;
   flex-direction: row;
@@ -132,7 +136,7 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  min-height: 400px; /* Esto asegura que ambas tarjetas tengan la misma altura mínima */
+  min-height: 400px; 
   flex: 1;
 }
 
