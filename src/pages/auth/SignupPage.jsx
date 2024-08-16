@@ -121,11 +121,11 @@ function SignupPage() {
                   />
                 </Form.Group>
 
-                <h6 style={{ marginBottom: "1vw", fontWeight: "normal" }}>
+                <h6 className="mb-3" style={{ color: "#b43f3f", fontWeight: "normal"}}>
                   Tiempo en nuevo país:
                 </h6>
                 <Form.Group
-                  className="d-flex flex-row justify-content-center align-items-center mb-5"
+                  className="d-flex flex-row justify-content-center align-items-center mb-3"
                 >
                   <Form.Label style={{ marginRight: "1vw" }}>Meses: </Form.Label>
                   <Form.Control
@@ -151,8 +151,7 @@ function SignupPage() {
                   <Form.Select
                     onChange={handleRolChange}
                     aria-label="Default select example"
-                    className="signup-form-control"
-                  >
+                    className="signup-form-control">
                     <option>Selecciona tu rol</option>
                     <option value="user">Usuario</option>
                     <option value="psicologo">Psicologo</option>
@@ -169,7 +168,7 @@ function SignupPage() {
                   />
                 </Form.Group> : null}
 
-                
+                  <br />
 
                 <Button type="submit" className="w-100">
                   Registrarse

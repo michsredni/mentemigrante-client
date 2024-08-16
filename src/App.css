@@ -649,6 +649,10 @@ label {
   border-color: #ff8225;
 }
 
+.text-center {
+  color: #000000;
+}
+
 /* About us page*/
 
 .about-page {
